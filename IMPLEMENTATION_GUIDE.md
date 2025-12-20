@@ -91,4 +91,23 @@ npx bmad-method@alpha install
 
 - [BMAD v6 - Agent Customization Guide](https://github.com/b566776/BMAD-METHOD/blob/main/docs/agent-customization-guide.md)
 - [BMAD v6 - Custom Content Installation](https://github.com/b566776/BMAD-METHOD/blob/main/docs/custom-content-installation.md)
+- 
+## Mapeamento: Fases BMAD → Workflows → Entregáveis
+
+O módulo implementa as 4 fases do BMAD adaptado para editais. Cada fase possui um workflow dedicado que gera documentos estruturados:
+
+| Fase | Workflow | Saída |
+|------|----------|-------|
+| **1 - ANALYSIS** | `analise-edital.yaml` | `FASE1_ANALISE.md` |
+| **2 - PLANNING** | `ideias-projeto.yaml` | `FASE2_PLANEJAMENTO.md` |
+| **3 - SOLUTION** | `desenho-projeto.yaml` | `FASE3_SOLUCAO.md` + `TEMPLATE_PROJETO_EDITAL.md` (preenchido) |
+| **4 - IMPLEMENTATION** | `implementacao-projeto.yaml` | `FASE4_IMPLEMENTACAO.md` |
+
+### Documentação das Fases
+
+Para descrição detalhada de cada fase, objetivos, entregas e papéis de IA, consulte:
+
+- [docs/BMAD_EDITAIS_OVERVIEW.md](./docs/BMAD_EDITAIS_OVERVIEW.md)
+
+---
 - [BMAD Sample Modules](https://github.com/b566776/BMAD-METHOD/tree/main/docs/sample-custom-modules)
