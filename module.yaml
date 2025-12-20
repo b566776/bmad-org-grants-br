@@ -1,0 +1,16 @@
+code: bgb
+name: "BGb: BMAD Grants Brazil"
+default_selected: false
+type: module
+header: "BGb: Análise de Editais e Redação de Projetos"
+subheader: "Módulo especializado em elaboração de propostas para editais públicos e privados"
+
+org_name:
+  prompt: "Qual é o nome da sua organização?"
+  default: "Amigos da Vida"
+  result: "{value}"
+
+org_focus:
+  prompt: "Qual é a área de atuação principal?"
+  default: "Saúde, Assistência Social e Direitos Humanos"
+  result: "{value}"
