@@ -2,7 +2,7 @@ version: "1.0"
 name: "analise-edital"
 description: >
   Workflow para analisar edital, gerar resumo técnico, checklist de requisitos
-  e sugestões iniciais de linhas de projeto para a ONG Amigos da Vida.
+  e sugestões iniciais de linhas de projeto para a Organização.
 
 inputs:
   arquivo_pdf_edital:

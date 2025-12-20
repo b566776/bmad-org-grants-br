@@ -87,7 +87,7 @@ memories/
 O agente PM será configurado como especialista em editais:
 - Persona: Especialista em elaboração de projetos sociais
 - Menu customizado com opcoes: analisar-edital, ideias-projeto, projeto-completo
-- Memórias sobre a ONG Amigos da Vida
+- Memórias sobre a Organização
 - Prompts reutilizáveis para ações específicas
 
 ### 2. Criar Workflows (workflows/)

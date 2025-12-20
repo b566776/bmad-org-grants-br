@@ -30,7 +30,7 @@ Compreender profundamente o edital e o contexto da organização proponente. A I
 **Processo:**
 
 1. Leitura automática do edital (conversão PDF → Markdown)
-2. Incorporação da base de conhecimento da ONG exclusivamente do diretório `baseDeConhecimento/` e seus subdiretórios
+2. Incorporação da base de conhecimento da Organizaçãoexclusivamente do diretório `baseDeConhecimento/` e seus subdiretórios
 3. Extração de requisitos críticos: objeto, público-alvo, valores, prazos, critérios de pontuação
 4. Diagnóstico situacional: problemas, oportunidades, restrições
 
