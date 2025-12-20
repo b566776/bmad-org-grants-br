@@ -59,6 +59,7 @@ Escolher compilar todos os agentes para aplicar a customização (`bmm-pm.custom
 3. **Fase 2 - Planejamento**: Usar `IR PARA FASE 2` → gera `FASE2_PLANEJAMENTO.md` com ideias de projetos
 4. **Fase 3 - Solução**: Usar `IR PARA FASE 3` → preenche `TEMPLATE_PROJETO_EDITAL.md` e gera `FASE3_SOLUCAO.md`
 5. **Fase 4 - Implementação**: Usar `IR PARA FASE 4` → gera `FASE4_IMPLEMENTACAO.md` com plano de trabalho, orçamento e checklist
+6. 6. **Fase 5 - Validação**: Usar `VALIDAR` → gera `FASE5_VALIDACAO.md` com verificação de coeência estrutural (DVP-DAVID)
 
 ### Comandos de Navegação
 
@@ -72,6 +73,7 @@ O usuário controla o fluxo através de comandos explícitos:
 
 ---
 
+- `IR PARA FASE 5` → Avança para Fase 5
 ## 📁 Estrutura do Repositório
 
 ```
@@ -98,14 +100,15 @@ bmad-org-grants-br/
 
 ---
 
-## 🔄 As 4 Fases do BMAD-Editais
+## 🔄5  Fases do BMAD-Editais
 
 | Fase | Nome | Objetivo | Saída |
 |------|------|----------|-------|
 | **1** | **ANALYSIS** | Compreender edital e contexto | `FASE1_ANALISE.md` |
 | **2** | **PLANNING** | Gerar ideias de projetos alinhadas | `FASE2_PLANEJAMENTO.md` |
 | **3** | **SOLUTION** | Desenhar proposta técnica completa | `FASE3_SOLUCAO.md` |
-| **4** | **IMPLEMENTATION** | Operacionalizar plano e orçamento | `FASE4_IMPLEMENTACAO.md` |
+| **4** | **IMPLEMENTATION** | Operacionalizar plano e orçamento | `FASE4_IMPLEMENTACAO.md`
+| **5** | **VALIDATION** | Validar coerência estrutural da proposta | `FASE5_VALIDACAO.md` ||
 
 Cada fase possui um agente IA especializado que atua com um papel distinto:
 
@@ -113,6 +116,7 @@ Cada fase possui um agente IA especializado que atua com um papel distinto:
 - **Fase 2**: Product Manager + Estrategista
 - **Fase 3**: Architect + Program Designer
 - **Fase 4**: Scrum Master + Operations Manager
+- - **Fase 5**: Validador de Coeência Estrutural (DVP-DAVID)
 
 ---
 
