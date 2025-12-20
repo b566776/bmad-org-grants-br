@@ -2,7 +2,7 @@
 
 **Módulo BGb – BMAD Grants Brazil**
 
-Módulo BMAD v6 para análise de editais e redação de projetos para organizações (foco: Amigos da Vida). Integração com install-custom e fluxo de uso.
+Módulo BMAD v6 para análise de editais e redação de projetos para organizações (foco: Organizações e Startups). Integração com install-custom e fluxo de uso.
 
 ## Resumo Executivo
 
@@ -10,7 +10,7 @@ Módulo BMAD v6 para análise de editais e redação de projetos para organizaç
 
 ### ✨ Características Principais
 
-- 54 Fases Estruturadas**: Analysis → Planning → Solution → Implementation
+- 5 Fases Estruturadas**: Analysis → Planning → Solution → Implementation  → Validation
 - **IA Especializada em Cada Fase**: Analista, Estrategista, Arquiteto, Gestor
 - **Base de Conhecimento Integrada**: Memória automática da organização (portfólio, relatórios, certificações)
 - **Templates Prontos**: Estrutura padronizada para todas as propostas
