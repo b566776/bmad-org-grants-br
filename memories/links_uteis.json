@@ -1,0 +1,277 @@
+{
+    "metadata": {
+        "version": "1.0",
+        "last_updated": "2025-12-20",
+        "description": "Links úteis categorizados para elaboração de projetos e editais"
+    },
+    "categorias": {
+        "editais_federais": {
+            "nome": "Editais e Plataformas Federais",
+            "descricao": "Principais portais de editais do governo federal",
+            "links": [
+                {
+                    "titulo": "Portal de Convênios (SICONV)",
+                    "url": "https://www.gov.br/transferegov/pt-br",
+                    "descricao": "Sistema oficial para convênios e parcerias com o governo federal",
+                    "tags": [
+                        "governo",
+                        "convênios",
+                        "oficial"
+                    ]
+                },
+                {
+                    "titulo": "Plataforma +Brasil",
+                    "url": "https://www.gov.br/plataformamaisbrasil",
+                    "descricao": "Portal integrado de transferências voluntárias da União",
+                    "tags": [
+                        "governo",
+                        "transparência"
+                    ]
+                },
+                {
+                    "titulo": "CNPQ - Chamadas Públicas",
+                    "url": "https://www.gov.br/cnpq/pt-br/acesso-a-informacao/chamadas-públicas",
+                    "descricao": "Editais de fomento científico e tecnológico",
+                    "tags": [
+                        "ciência",
+                        "pesquisa",
+                        "inovação"
+                    ]
+                }
+            ]
+        },
+        "fundacoes_institutos": {
+            "nome": "Fundações e Institutos",
+            "descricao": "Organizações privadas que financiam projetos sociais",
+            "links": [
+                {
+                    "titulo": "Prosas (Plataforma + Social)",
+                    "url": "https://www.prosas.com.br",
+                    "descricao": "Plataforma de conexão entre OSCs e financiadores",
+                    "tags": [
+                        "social",
+                        "terceiro-setor",
+                        "matching"
+                    ]
+                },
+                {
+                    "titulo": "GIFE - Rede de Investidores Sociais",
+                    "url": "https://gife.org.br",
+                    "descricao": "Informações sobre fundações e institutos brasileiros",
+                    "tags": [
+                        "investimento-social",
+                        "rede"
+                    ]
+                },
+                {
+                    "titulo": "Fundação Banco do Brasil",
+                    "url": "https://fbb.org.br/pt-br/editais",
+                    "descricao": "Editais de tecnologia social e desenvolvimento",
+                    "tags": [
+                        "tecnologia-social",
+                        "desenvolvimento"
+                    ]
+                }
+            ]
+        },
+        "capacitacao": {
+            "nome": "Capacitação e Ferramentas",
+            "descricao": "Recursos para aprendizado e elaboração de projetos",
+            "links": [
+                {
+                    "titulo": "Escola Virtual de Governo (ENAP)",
+                    "url": "https://www.escolavirtual.gov.br",
+                    "descricao": "Cursos gratuitos sobre elaboração de projetos e convênios",
+                    "tags": [
+                        "capacitação",
+                        "gratuito",
+                        "governo"
+                    ]
+                },
+                {
+                    "titulo": "Sebrae - Como Elaborar Projetos",
+                    "url": "https://www.sebrae.com.br",
+                    "descricao": "Materiais e orientações para elaboração de projetos",
+                    "tags": [
+                        "empreendedorismo",
+                        "guias"
+                    ]
+                },
+                {
+                    "titulo": "Marco Regulatório das OSCs (MROSC)",
+                    "url": "https://www.gov.br/secretariageral/pt-br/mrosc",
+                    "descricao": "Lei 13.019/2014 e regulamentações para parcerias com OSCs",
+                    "tags": [
+                        "legislação",
+                        "osc",
+                        "parcerias"
+                    ]
+                }
+            ]
+        },
+        "transparencia": {
+            "nome": "Transparência e Prestação de Contas",
+            "descricao": "Ferramentas para acompanhamento de recursos públicos",
+            "links": [
+                {
+                    "titulo": "Portal da Transparência",
+                    "url": "https://portaldatransparencia.gov.br",
+                    "descricao": "Acompanhamento de gastos do governo federal",
+                    "tags": [
+                        "transparência",
+                        "dados-abertos"
+                    ]
+                },
+                {
+                    "titulo": "TCU - Orientações",
+                    "url": "https://portal.tcu.gov.br",
+                    "descricao": "Orientações do Tribunal de Contas da União",
+                    "tags": [
+                        "fiscalização",
+                        "prestação-contas"
+                    ]
+                }
+            ]
+        },
+        "inovacao_tecnologia": {
+            "nome": "Inovação e Tecnologia",
+            "descricao": "Editais e programas de fomento à inovação",
+            "links": [
+                {
+                    "titulo": "FINEP - Inovação e Pesquisa",
+                    "url": "https://www.finep.gov.br/chamadas-publicas",
+                    "descricao": "Financiadora de Estudos e Projetos - editais de inovação",
+                    "tags": [
+                        "inovação",
+                        "startups",
+                        "P&D"
+                    ]
+                },
+                {
+                    "titulo": "Programa Centelha",
+                    "url": "https://programacentelha.com.br",
+                    "descricao": "Fomento a startups de base tecnológica e inovação",
+                    "tags": [
+                        "startups",
+                        "inovação",
+                        "empreendedorismo"
+                    ]
+                },
+                {
+                    "titulo": "Embrapii - Parceiras em Inovação",
+                    "url": "https://embrapii.org.br",
+                    "descricao": "Fomento a projetos de P&D em parceria com empresas",
+                    "tags": [
+                        "P&D",
+                        "parcerias",
+                        "indústria"
+                    ]
+                }
+            ]
+        },
+        "dados_indicadores": {
+            "nome": "Dados e Indicadores",
+            "descricao": "Bases de dados para fundamentação de projetos",
+            "links": [
+                {
+                    "titulo": "IBGE - Instituto Brasileiro de Geografia e Estatística",
+                    "url": "https://www.ibge.gov.br",
+                    "descricao": "Dados demográficos, socioeconômicos e territoriais",
+                    "tags": [
+                        "dados",
+                        "estatísticas",
+                        "censo"
+                    ]
+                },
+                {
+                    "titulo": "IPEA - Instituto de Pesquisa Econômica Aplicada",
+                    "url": "https://www.ipea.gov.br",
+                    "descricao": "Estudos e pesquisas sobre desenvolvimento socioeconômico",
+                    "tags": [
+                        "pesquisa",
+                        "políticas-públicas"
+                    ]
+                },
+                {
+                    "titulo": "ODS Brasil - Indicadores",
+                    "url": "https://odsbrasil.gov.br",
+                    "descricao": "Indicadores dos Objetivos de Desenvolvimento Sustentável",
+                    "tags": [
+                        "ODS",
+                        "sustentabilidade",
+                        "indicadores"
+                    ]
+                },
+                {
+                    "titulo": "DataSUS",
+                    "url": "https://datasus.saude.gov.br",
+                    "descricao": "Dados de saúde pública do Brasil",
+                    "tags": [
+                        "saúde",
+                        "dados-públicos"
+                    ]
+                }
+            ]
+        },
+        "legislacao": {
+            "nome": "Legislação e Normas",
+            "descricao": "Leis, decretos e normas relevantes",
+            "links": [
+                {
+                    "titulo": "Planalto - Legislação Federal",
+                    "url": "http://www4.planalto.gov.br/legislacao",
+                    "descricao": "Leis, decretos e medidas provisórias federais",
+                    "tags": [
+                        "legislação",
+                        "leis",
+                        "decretos"
+                    ]
+                },
+                {
+                    "titulo": "Lei 13.019/2014 (MROSC)",
+                    "url": "http://www.planalto.gov.br/ccivil_03/_ato2011-2014/2014/lei/l13019.htm",
+                    "descricao": "Marco Regulatório das Organizações da Sociedade Civil",
+                    "tags": [
+                        "OSC",
+                        "parcerias",
+                        "termos-colaboração"
+                    ]
+                }
+            ]
+        },
+        "redes_articulacao": {
+            "nome": "Redes e Articulação",
+            "descricao": "Organizações para networking e articulação",
+            "links": [
+                {
+                    "titulo": "ABONG - Associação Brasileira de ONGs",
+                    "url": "https://abong.org.br",
+                    "descricao": "Rede de articulação de ONGs brasileiras",
+                    "tags": [
+                        "rede",
+                        "advocacy",
+                        "articulação"
+                    ]
+                },
+                {
+                    "titulo": "Rede GIFE",
+                    "url": "https://gife.org.br",
+                    "descricao": "Rede de investidores sociais privados",
+                    "tags": [
+                        "investimento-social",
+                        "networking"
+                    ]
+                }
+            ]
+        }
+    },
+    "como_usar": {
+        "descricao": "Este arquivo JSON contém links úteis categorizados para referência durante elaboração de projetos",
+        "instrucoes": [
+            "Use a categoria 'editais_federais' para buscar editais do governo",
+            "Consulte 'dados_indicadores' para fundamentar diagnósticos e justificativas",
+            "Verifique 'legislacao' para garantir conformidade legal",
+            "Explore 'capacitacao' para melhorar suas habilidades de redação de projetos"
+        ]
+    }
+}

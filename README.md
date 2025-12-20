@@ -28,6 +28,8 @@ Módulo BMAD v6 para análise de editais e redação de projetos para organizaç
 
 ## 🚀 Instalação
 
+### Passo 1: Instalar o Módulo BMAD
+
 Crie o repositório https://github.com/SUA_ORG/bmad-org-grants-br.git com a estrutura acima.
 
 Dentro de um projeto BMAD já instalado, rodar:
@@ -40,13 +42,129 @@ npx bmad-method@alpha install-custom \
 
 Isso copia `agents/`, `workflows/`, `memories/` e `templates/` para `_bmad/modules/bmad-org-grants-br`.
 
-### Configuração Final
+### Passo 2: Copiar Scripts Python e Configurações
+
+**⚠️ Importante:** O comando acima NÃO copia os scripts Python e configs automaticamente.
+
+#### Opção A: Instalação Automatizada (Recomendado)
+
+**Linux/Mac:**
+```bash
+cd _bmad/modules/bmad-org-grants-br
+curl -O https://raw.githubusercontent.com/SUA_ORG/bmad-org-grants-br/main/install.sh
+chmod +x install.sh
+./install.sh
+```
+
+**Windows (PowerShell como Administrador):**
+```powershell
+cd _bmad/modules/bmad-org-grants-br
+Invoke-WebRequest -Uri "https://raw.githubusercontent.com/SUA_ORG/bmad-org-grants-br/main/install.ps1" -OutFile "install.ps1"
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+.\install.ps1
+```
+
+O script irá:
+- ✅ Clonar o repositório temporariamente
+- ✅ Copiar scripts Python e configurações
+- ✅ Instalar dependências (opcional)
+- ✅ Limpar arquivos temporários
+
+#### Opção B: Instalação Manual
+
+Clone o repositório e copie manualmente:
+
+```bash
+# Clone do repositório
+git clone https://github.com/SUA_ORG/bmad-org-grants-br.git temp-bgb
+
+# Navegue até o diretório do módulo instalado
+cd _bmad/modules/bmad-org-grants-br
+
+# Copie os scripts Python
+cp ../../../temp-bgb/pdf_converter.py .
+cp ../../../temp-bgb/converter_pdf_md.py .
+cp ../../../temp-bgb/converter_pdfs_batch.py .
+cp ../../../temp-bgb/requirements.txt .
+
+# Copie a pasta config
+cp -r ../../../temp-bgb/config .
+
+# Copie a pasta docs (opcional, para referência local)
+cp -r ../../../temp-bgb/docs .
+
+# Limpe o diretório temporário
+cd ../../..
+rm -rf temp-bgb
+```
+
+**Alternativa Windows (PowerShell):**
+```powershell
+# Clone do repositório
+git clone https://github.com/SUA_ORG/bmad-org-grants-br.git temp-bgb
+
+# Navegue até o diretório do módulo instalado
+cd _bmad/modules/bmad-org-grants-br
+
+# Copie os scripts Python
+Copy-Item ..\..\..\temp-bgb\pdf_converter.py .
+Copy-Item ..\..\..\temp-bgb\converter_pdf_md.py .
+Copy-Item ..\..\..\temp-bgb\converter_pdfs_batch.py .
+Copy-Item ..\..\..\temp-bgb\requirements.txt .
+
+# Copie as pastas
+Copy-Item ..\..\..\temp-bgb\config -Recurse .
+Copy-Item ..\..\..\temp-bgb\docs -Recurse .
+
+# Limpe o diretório temporário
+cd ..\..\..
+Remove-Item temp-bgb -Recurse -Force
+```
+
+### Passo 3: Instalar Dependências Python
+
+```bash
+cd _bmad/modules/bmad-org-grants-br
+pip install -r requirements.txt
+```
+
+### Passo 4: Compilar Agentes BMAD
 
 ```bash
 npx bmad-method@alpha install
 ```
 
 Escolher compilar todos os agentes para aplicar a customização (`bmm-pm.customize.yaml`).
+
+### Dependências Python (Conversão de PDFs)
+
+Para usar os scripts de conversão de PDF para Markdown:
+
+```bash
+pip install -r requirements.txt
+```
+
+Isso instalará:
+- **Docling** (primário) - Engine avançado com OCR, tabelas e fórmulas
+- **pypdf** (fallback) - Engine básico para PDFs simples
+
+---
+
+## 🔄 Conversão de PDFs 
+
+O módulo inclui scripts para converter PDFs de editais e documentos para Markdown automaticamente:
+
+### Converter um único PDF:
+```bash
+python converter_pdf_md.py "memories/editais/edital.pdf"
+```
+
+### Converter todos os PDFs em lote:
+```bash
+python converter_pdfs_batch.py "memories" --recursive
+```
+
+**Veja mais:** [CONVERSAO_PDF.md](./docs/CONVERSAO_PDF.md) para documentação completa.
 
 ---
 
@@ -74,25 +192,73 @@ O usuário controla o fluxo através de comandos explícitos:
 ---
 
 - `IR PARA FASE 5` → Avança para Fase 5
+
+---
+
+## 🎁 Features Opcionais
+
+### Sistema de Links Úteis Categorizados
+
+Arquivo JSON com +50 links organizados em 8 categorias:
+- Editais federais (SICONV, CNPq)
+- Fundações e institutos
+- Dados e indicadores (IBGE, IPEA, ODS)
+- Legislação e normas
+- Capacitação e ferramentas
+
+**Localização:** [`memories/links_uteis.json`](./memories/links_uteis.json)
+
+### Análise Preditiva de Chances de Aprovação
+
+Script Python que estima probabilidade de aprovação baseado em 7 critérios:
+- Coerência Estrutural DVP (25%)
+- Alinhamento com Edital (20%)
+- Adequação Orçamentária (15%)
+- Qualificação da Equipe (15%)
+- Inovação, Impacto Social, Sustentabilidade (30%)
+
+**Uso:**
+```bash
+python approval_predictor.py memories/editais/edital-xyz/projeto/
+```
+
+**Documentação completa:** [FEATURES_OPCIONAIS.md](./docs/FEATURES_OPCIONAIS.md)
+
+---
+
 ## 📁 Estrutura do Repositório
 
 ```
 bmad-org-grants-br/
+├── pdf_converter.py                   # Módulo de conversão PDF
+├── converter_pdf_md.py                # Script conversão individual
+├── converter_pdfs_batch.py            # Script conversão em lote
+├── approval_predictor.py              # Análise preditiva de aprovação
+├── requirements.txt                   # Dependências Python
+├── install.sh / install.ps1           # Scripts de instalação
+├── config/
+│   └── config.json                    # Configuração de PDF
 ├── agents/
-│   └── bmm-pm.customize.yaml          # Persona de PM com 4 fases
+│   └── bmm-pm.customize.yaml          # Agente PM com DVP
 ├── memories/
 │   ├── ORGANIZATION_PORTFOLIO.md      # Portfólio da organização
-│   └── editais/                       # Editais processados
-├── memória estática /exemplos-editais/  # Exemplos de editais para referência
+│   ├── links_uteis.json               # Links categorizados
+│   ├── editais/                       # Editais processados
+│   └── logs/                          # Logs de conversão
 ├── templates/
-│   └── TEMPLATE_PROJETO_EDITAL.md     # Template de proposta
+│   ├── TEMPLATE_PROJETO_EDITAL.md     # Template de proposta
+│   └── TEMPLATE_VALIDACAO.md          # Template DVP
 ├── workflows/
 │   ├── analise-edital.yaml            # FASE 1
 │   ├── ideias-projeto.yaml            # FASE 2
-│   ├── desenho-projeto.yaml           # FASE 3
-│   └── implementacao-projeto.yaml     # FASE 4
+│   ├── validacao-projeto.yaml         # FASE 5
+│   ├── arquivar-projeto.yaml          # Arquivamento
+│   └── review-proposal.yaml           # Revisão QA
 ├── docs/
-│   └── BMAD_EDITAIS_OVERVIEW.md       # Documentação completa
+│   ├── BMAD_EDITAIS_OVERVIEW.md       # Visão geral
+│   ├── DAVID_DVP_PROTOCOL.md          # Protocolo DVP
+│   ├── CONVERSAO_PDF.md               # Conversão PDF
+│   └── FEATURES_OPCIONAIS.md          # Features extras
 ├── IMPLEMENTATION_GUIDE.md
 ├── README.md (este arquivo)
 └── module.yaml
@@ -107,8 +273,8 @@ bmad-org-grants-br/
 | **1** | **ANALYSIS** | Compreender edital e contexto | `FASE1_ANALISE.md` |
 | **2** | **PLANNING** | Gerar ideias de projetos alinhadas | `FASE2_PLANEJAMENTO.md` |
 | **3** | **SOLUTION** | Desenhar proposta técnica completa | `FASE3_SOLUCAO.md` |
-| **4** | **IMPLEMENTATION** | Operacionalizar plano e orçamento | `FASE4_IMPLEMENTACAO.md`
-| **5** | **VALIDATION** | Validar coerência estrutural da proposta | `FASE5_VALIDACAO.md` ||
+| **4** | **IMPLEMENTATION** | Operacionalizar plano e orçamento | `FASE4_IMPLEMENTACAO.md` |
+| **5** | **VALIDATION** | Validar coerência estrutural da proposta | `FASE5_VALIDACAO.md` |
 
 Cada fase possui um agente IA especializado que atua com um papel distinto:
 
@@ -116,15 +282,28 @@ Cada fase possui um agente IA especializado que atua com um papel distinto:
 - **Fase 2**: Product Manager + Estrategista
 - **Fase 3**: Architect + Program Designer
 - **Fase 4**: Scrum Master + Operations Manager
-- - **Fase 5**: Validador de Coeência Estrutural (DVP-DAVID)
+- **Fase 5**: Validador de Coerência Estrutural (DVP-DAVID)
 
 ---
 
 ## 📚 Recursos
 
-- Documentação detalhada: [docs/BMAD_EDITAIS_OVERVIEW.md](./docs/BMAD_EDITAIS_OVERVIEW.md)
+### Documentação Principal
+- Visão geral: [docs/BMAD_EDITAIS_OVERVIEW.md](./docs/BMAD_EDITAIS_OVERVIEW.md)
 - Guia de implementação: [IMPLEMENTATION_GUIDE.md](./IMPLEMENTATION_GUIDE.md)
-- Template de proposta: [templates/TEMPLATE_PROJETO_EDITAL.md](./templates/TEMPLATE_PROJETO_EDITAL.md)
+- Conversão PDF: [docs/CONVERSAO_PDF.md](./docs/CONVERSAO_PDF.md)
+
+### Protocolo DVP (Fase 5)
+- Protocolo científico: [docs/DAVID_DVP_PROTOCOL.md](./docs/DAVID_DVP_PROTOCOL.md)
+- Template de validação: [templates/TEMPLATE_VALIDACAO.md](./templates/TEMPLATE_VALIDACAO.md)
+
+### Features Opcionais
+- **Documentação**: [docs/FEATURES_OPCIONAIS.md](./docs/FEATURES_OPCIONAIS.md)
+- **Links úteis**: [memories/links_uteis.json](./memories/links_uteis.json)
+- **Análise preditiva**: `approval_predictor.py`
+
+### Templates
+- Proposta: [templates/TEMPLATE_PROJETO_EDITAL.md](./templates/TEMPLATE_PROJETO_EDITAL.md)
 
 ---
 

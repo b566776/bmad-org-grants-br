@@ -102,9 +102,38 @@ Transformar a solução em plano operacional. A IA atua como **Scrum Master + Op
 - Orçamento estruturado
 - Perguntas de submissão respondidas
 - Documentos de submissão prontos
-- Orçamento estruturado
-- Perguntas de submissão respondidas
-- Documentos de submissão prontos
+
+---
+
+#### **FASE 5 — VALIDATION (Validação Estrutural)**
+
+**Novo conceito introduzido: Protocolo DAVID-ε · DVP**
+
+Validar a coerência estrutural da proposta antes da submissão. A IA atua como **Validador de Coerência Estrutural**.
+
+**Processo:**
+
+1. Aplicação do protocolo DVP (David Validation Protocol)
+2. Avaliação de 7 métricas estruturais ($m_1$ a $m_7$)
+3. Cálculo da coerência estrutural global $C(S)$
+4. Classificação: RESOLÚVEL | REFORMULÁVEL | ESTRUTURALMENTE INVIÁVEL
+5. Geração de plano de ajustes (se necessário)
+
+**Métricas Avaliadas:**
+- $m_1$: Consistência interna (ausência de contradições)
+- $m_2$: Alinhamento entre subsistemas (cronograma, orçamento, equipe)
+- $m_3$: Estabilidade estrutural (robustez frente a riscos)
+- $m_4$: Capacidade de emergência (potencial de impacto ampliado)
+- $m_5$: Densidade informacional (qualidade das informações)
+- $m_6$: Relação sinal/ruído (clareza da comunicação)
+- $m_7$: Conservação de sentido global (alinhamento com edital e missão)
+
+**Entrega:** `FASE5_VALIDACAO.md`
+- Relatório completo de validação estrutural
+- Pontuação detalhada de cada métrica
+- Cálculo de $C(S)$ (coerência estrutural)
+- Classificação e recomendações
+- Parecer final de aprovação para submissão
 
 ---
 
@@ -116,6 +145,7 @@ Transformar a solução em plano operacional. A IA atua como **Scrum Master + Op
 | **2 - Planning** | Product Manager | Gerar ideias, modelar propostas, recomendar estratégias |
 | **3 - Solution** | Architect | Desenhar solução técnica completa e estruturada |
 | **4 - Implementation** | Scrum Master | Operacionalizar plano, cronograma e orçamento |
+| **5 - Validation** | Validador DVP | Aplicar protocolo de coerência estrutural DAVID-ε |
 
 ---
 
@@ -123,9 +153,11 @@ Transformar a solução em plano operacional. A IA atua como **Scrum Master + Op
 
 - **README.md**: Visão geral do módulo BGb
 - **IMPLEMENTATION_GUIDE.md**: Guia de implementação prática
+- **docs/DAVID_DVP_PROTOCOL.md**: Protocolo de validação estrutural (Fase 5)
 - **templates/TEMPLATE_PROJETO_EDITAL.md**: Template padrão para projetos
+- **templates/TEMPLATE_VALIDACAO.md**: Template de relatório de validação DVP
 - **agents/bmm-pm.customize.yaml**: Configuração da persona de PM
-- **workflows/**: Workflows para cada fase
+- **workflows/**: Workflows para cada fase (incluindo validacao-projeto.yaml)
 
 ---
 

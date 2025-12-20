@@ -1,1 +1,46 @@
+---
+description: Fase 2 - Planejamento e Estratégia (BMAD-Editais)
+---
+# Workflow Fase 2: Planejamento
 
+1. Carregar Análise da Fase 1
+   - Leia `FASE1_ANALISE.md` gerado na fase anterior
+
+2. Carregar Base de Conhecimento da Organização
+   - Leia arquivos em `_bmad/modules/bmad-org-grants-br/memories/`
+   - Incorpore portfólio, capacidades e histórico organizacional
+
+3. Ideação e Estratégia
+   - Gere 2-4 ideias de projetos alinhadas ao edital
+   - Para cada ideia, defina:
+     * Objetivo geral
+     * 3-6 objetivos específicos (SMART)
+     * Público-alvo e beneficiários
+     * Resultados esperados
+     * Alinhamento com ODS
+
+4. Análise Comparativa
+   - Crie tabela comparativa das ideias
+   - Critérios: Inovação | Impacto Social | Viabilidade | Complexidade | Alinhamento ao Edital
+   - Atribua pontuação (1-5) para cada critério
+
+5. Recomendação Estratégica
+   - Analise a tabela comparativa
+   - Identifique a ideia com melhor potencial
+   - Justifique a recomendação (3-5 parágrafos)
+   - Destaque riscos e oportunidades
+
+6. Interação com Usuário
+   - Apresente as ideias e a análise comparativa
+   -Pergunte: "Qual ideia de projeto você deseja priorizar para a Fase 3?"
+   - Aguarde resposta do usuário antes de avançar
+
+7. Gerar Entregável
+   - Crie o arquivo `FASE2_PLANEJAMENTO.md` contendo:
+     * Ideias detalhadas (uma seção para cada ideia)
+     * Tabela comparativa com pontuações
+     * Recomendação fundamentada
+     * Próximos passos sugeridos
+     * Pergunta explícita ao usuário sobre escolha
+
+**Importante:** Não avance para Fase 3 automaticamente. Aguarde comando explícito do usuário.

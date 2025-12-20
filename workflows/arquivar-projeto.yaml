@@ -1,0 +1,72 @@
+---
+description: Arquivar Projeto Concluído (BMAD-Editais)
+---
+# Workflow: Arquivar Projeto
+
+Este workflow move os arquivos de trabalho atuais para a pasta de histórico, limpando o ambiente para um novo edital.
+
+## Pré-requisitos
+- Projeto concluído e submetido
+- Todos os arquivos das 5 fases gerados
+
+## Passos
+
+1. **Identificar Nome do Edital**
+   - Solicite ao usuário o nome do edital para criar a pasta de arquivo
+   - Formato sugerido: `EDITAL-ORGAO-ANO` (ex: `CENTELHA3-FAPDF-2025`)
+
+2. **Criar Estrutura de Arquivo**
+   - Crie: `_bmad/modules/bmad-org-grants-br/memories/editais-anteriores/[Nome_do_Edital]/`
+   - Crie: `_bmad/modules/bmad-org-grants-br/memories/editais-anteriores/[Nome_do_Edital]/projeto/`
+
+3. **Mover Arquivos da Proposta**
+   - Mova para `projeto/`:
+     * `FASE1_ANALISE.md`
+     * `FASE2_PLANEJAMENTO.md`
+     * `FASE3_SOLUCAO.md`
+     * `FASE4_IMPLEMENTACAO.md`
+     * `FASE5_VALIDACAO.md`
+     * `TEMPLATE_PROJETO_EDITAL.md` (se preenchido)
+     * Quaisquer outros documentos gerados
+
+4. **Mover Arquivos do Edital**
+   - Mova para pasta raiz `[Nome_do_Edital]/`:
+     * PDF do edital original
+     * Markdown do edital (se convertido)
+     * Documentos complementares (anexos, formulários, etc.)
+
+5. **Criar Arquivo README de Resumo**
+   - Crie `README.md` na pasta `[Nome_do_Edital]/` com:
+     * Nome do edital
+     * Data de submissão
+     * Status final (Submetido/Aprovado/Recusado)
+     * Valor solicitado
+     * Observações relevantes
+
+6. **Atualizar Log de Editais**
+   - Adicione entrada em `_bmad/modules/bmad-org-grants-br/memories/HISTORICO_EDITAIS.md`:
+     * Nome do edital
+     * Data de submissão
+     * Status
+     * Link para pasta arquivada
+
+7. **Limpeza (Opcional)**
+   - Se desejado, remova os arquivos originais após confirmação de cópia bem-sucedida
+   - **Atenção:** Verifique que todos os arquivos foram copiados antes de deletar
+
+8. **Confirmação Final**
+   - Informe ao usuário:
+     * "✅ Projeto arquivado com sucesso em: `editais-anteriores/[Nome_do_Edital]/`"
+     * "📂 Ambiente limpo e pronto para próximo edital"
+
+## Observações
+
+- **Sempre faça backup** antes de mover/deletar arquivos
+- Mantenha uma cópia do edital original (PDF) arquivada
+- Use nomes descritivos e consistentes para facilitar busca futura
+- Documente lições aprendidas no README do edital arquivado
+
+## Comandos de Usuário
+
+- `ARQUIVAR PROJETO` → Inicia este workflow
+- `LISTAR EDITAIS ANTERIORES` → Lista editais arquivados

@@ -1,0 +1,11 @@
+{
+    "pdf_conversion": {
+        "default_engine": "auto",
+        "fallback_to_pypdf": true,
+        "docling_options": {
+            "enable_ocr": true,
+            "preserve_tables": true,
+            "preserve_formulas": true
+        }
+    }
+}

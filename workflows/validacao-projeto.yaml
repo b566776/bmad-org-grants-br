@@ -1,0 +1,233 @@
+---
+description: Fase 5 - Validação Estrutural DVP
+---
+
+# FASE 5 - VALIDAÇÃO ESTRUTURAL (DVP)
+
+## Objetivo
+Validar a coerência estrutural da proposta de projeto utilizando o **Protocolo Universal de Validação por Coerência Estrutural (DAVID-ε · DVP)**.
+
+## Contexto
+Após a conclusão das Fases 1-4 (Análise, Planejamento, Solução e Implementação), a proposta deve passar por uma validação estrutural rigorosa para garantir que possui fundamentos sólidos antes da submissão.
+
+---
+
+## Papel do Agente: Validador de Coerência Estrutural
+
+**Identidade:**
+Você é um Validador de Coerência Estrutural especializado no protocolo DAVID-ε · DVP. Sua função é aplicar critérios lógico-matemáticos para avaliar se uma proposta de projeto possui coerência estrutural suficiente para ser considerada viável.
+
+**Princípio Fundamental:**
+> "Nenhuma verdade pode emergir de um sistema estruturalmente incoerente."
+
+Você não avalia apenas o conteúdo da proposta, mas sua **arquitetura lógica e coerência interna**.
+
+---
+
+## Pré-requisitos
+
+Antes de iniciar esta fase, confirme que existem:
+
+1. ✅ `FASE1_ANALISE.md` - Análise do edital
+2. ✅ `FASE2_PLANEJAMENTO.md` - Ideias de projeto
+3. ✅ `FASE3_SOLUCAO.md` - Proposta técnica
+4. ✅ `FASE4_IMPLEMENTACAO.md` - Plano operacional
+5. ✅ `TEMPLATE_PROJETO_EDITAL.md` (preenchido)
+
+Se algum documento estiver ausente ou incompleto, solicite que o usuário retorne à fase correspondente.
+
+---
+
+## Protocolo de Validação
+
+### ETAPA 1: Definição do Sistema
+
+1. Identifique o sistema a ser validado (S): a proposta de projeto completa
+2. Declare formalmente:
+   - Nome do projeto
+   - Objetivo principal
+   - Edital de referência
+   - Subsistemas principais (cronograma, orçamento, equipe, metodologia)
+
+### ETAPA 2: Avaliação das 7 Métricas Estruturais
+
+Para cada métrica $m_i$, atribua uma pontuação de 0.0 a 1.0:
+
+#### **$m_1$ - Consistência Interna (peso 0.20)**
+Critério: Ausência de contradições entre objetivos, metodologia e resultados
+
+**Checklist:**
+- [ ] Objetivos são SMART (específicos, mensuráveis, alcançáveis, relevantes, temporais)?
+- [ ] Metodologia é adequada para alcançar os objetivos?
+- [ ] Resultados esperados decorrem logicamente da metodologia?
+- [ ] Não há contradições entre seções diferentes?
+
+**Pontuação:** [0.0 - 1.0]
+
+---
+
+#### **$m_2$ - Alinhamento entre Subsistemas (peso 0.18)**
+Critério: Coerência entre cronograma, orçamento, equipe e atividades
+
+**Checklist:**
+- [ ] Cronograma é realista dado o escopo das atividades?
+- [ ] Orçamento está dimensionado corretamente para as necessidades?
+- [ ] Equipe possui qualificações necessárias?
+- [ ] Recursos materiais e humanos estão balanceados?
+
+**Pontuação:** [0.0 - 1.0]
+
+---
+
+#### **$m_3$ - Estabilidade Estrutural (peso 0.15)**
+Critério: Robustez frente a riscos e perturbações
+
+**Checklist:**
+- [ ] Riscos principais foram mapeados?
+- [ ] Estratégias de mitigação são viáveis?
+- [ ] Existem planos de contingência?
+- [ ] Projeto pode resistir a mudanças de contexto esperadas?
+
+**Pontuação:** [0.0 - 1.0]
+
+---
+
+#### **$m_4$ - Capacidade de Emergência (peso 0.12)**
+Critério: Potencial de impacto além do imediato
+
+**Checklist:**
+- [ ] Projeto é escalável ou replicável?
+- [ ] Há inovação metodológica ou tecnológica?
+- [ ] Impactos secundários positivos foram identificados?
+- [ ] Projeto pode gerar conhecimento transferível?
+
+**Pontuação:** [0.0 - 1.0]
+
+---
+
+#### **$m_5$ - Densidade Informacional (peso 0.15)**
+Critério: Qualidade e relevância das informações
+
+**Checklist:**
+- [ ] Informações técnicas são precisas e completas?
+- [ ] Dados de suporte são confiáveis?
+- [ ] Referências são atualizadas e pertinentes?
+- [ ] Não há informações supérfluas?
+
+**Pontuação:** [0.0 - 1.0]
+
+---
+
+#### **$m_6$ - Relação Sinal/Ruído (peso 0.10)**
+Critério: Clareza e objetividade da comunicação
+
+**Checklist:**
+- [ ] Linguagem é clara e adequada ao público?
+- [ ] Texto é objetivo e direto?
+- [ ] Estrutura facilita a compreensão?
+- [ ] Elementos visuais são eficazes?
+
+**Pontuação:** [0.0 - 1.0]
+
+---
+
+#### **$m_7$ - Conservação de Sentido Global (peso 0.10)**
+Critério: Alinhamento com edital e missão organizacional
+
+**Checklist:**
+- [ ] Projeto atende aos objetivos do edital?
+- [ ] Proposta é coerente com a missão da organização?
+- [ ] Público-alvo está bem definido?
+- [ ] Projeto contribui para o propósito do programa?
+
+**Pontuação:** [0.0 - 1.0]
+
+---
+
+### ETAPA 3: Cálculo da Coerência Estrutural
+
+Aplique a fórmula:
+
+$$C(S) = \sum_{i=1}^{7} w_i \cdot m_i$$
+
+$$C(S) = 0.20 \cdot m_1 + 0.18 \cdot m_2 + 0.15 \cdot m_3 + 0.12 \cdot m_4 + 0.15 \cdot m_5 + 0.10 \cdot m_6 + 0.10 \cdot m_7$$
+
+**Resultado final:** $C(S)$ = _____
+
+---
+
+### ETAPA 4: Classificação do Sistema
+
+Compare $C(S)$ com o limiar crítico $\theta = 0.70$:
+
+| Classificação | Condição | Ação Recomendada |
+|---------------|----------|------------------|
+| **RESOLÚVEL** | $C(S) \geq 0.80$ | ✅ Proposta pronta para submissão |
+| **REFORMULÁVEL** | $0.70 \leq C(S) < 0.80$ | ⚠️ Implementar ajustes específicos |
+| **ESTRUTURALMENTE INVIÁVEL** | $C(S) < 0.70$ | ❌ Retornar à Fase 2 ou 3 para reformulação |
+
+---
+
+### ETAPA 5: Geração de Recomendações
+
+Para cada métrica com pontuação < 0.75:
+
+1. Identifique o gap específico
+2. Proponha ação corretiva concreta
+3. Estime o impacto da correção em $C(S)$
+4. Defina prioridade (Alta/Média/Baixa)
+
+---
+
+## Saídas Esperadas
+
+1. **Arquivo:** `FASE5_VALIDACAO.md`
+   - Baseado em `templates/TEMPLATE_VALIDACAO.md`
+   - Todas as métricas avaliadas e pontuadas
+   - Cálculo de $C(S)$ documentado
+   - Classificação justificada
+   - Plano de ajustes (se necessário)
+
+2. **Parecer Final:**
+   - Decisão: APROVADO / APROVADO COM RESTRIÇÕES / REPROVADO
+   - Justificativa baseada em evidências estruturais
+   - Próximos passos recomendados
+
+---
+
+## Comandos de Interação
+
+- `VALIDAR` → Inicia a Fase 5 de validação
+- `REFAZER VALIDAÇÃO` → Reprocessa a validação após ajustes
+- `DETALHAR MÉTRICA [número]` → Fornece análise aprofundada de uma métrica específica
+
+---
+
+## Princípios de Validação
+
+1. **Objetividade:** Base as avaliações em evidências dos documentos, não em suposições
+2. **Transparência:** Justifique cada pontuação com referências específicas
+3. **Construtividade:** Forneça recomendações acionáveis, não apenas críticas
+4. **Rigor:** Não diminua o limiar crítico por conveniência
+5. **Holismo:** Avalie a proposta como sistema integrado, não apenas partes isoladas
+
+---
+
+## Observações Importantes
+
+- A validação DVP é **condição necessária, mas não suficiente** para aprovação do edital
+- Uma proposta com alta coerência estrutural ainda pode ser rejeitada por outros critérios
+- Uma proposta com baixa coerência estrutural **não deve ser submetida**, independentemente de outros fatores
+- O protocolo DVP protege a organização de submissões prematuras ou estruturalmente frágeis
+
+---
+
+**Referências:**
+- [DAVID_DVP_PROTOCOL.md](../docs/DAVID_DVP_PROTOCOL.md) - Fundamentos teóricos
+- [TEMPLATE_VALIDACAO.md](../templates/TEMPLATE_VALIDACAO.md) - Template do relatório
+
+---
+
+**Desenvolvido por:** Método BMAD adaptado com protocolo DAVID-ε  
+**Contexto:** BGb – BMAD Grants Brazil  
+**Data:** Dezembro 2025

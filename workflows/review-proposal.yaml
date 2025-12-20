@@ -1,0 +1,123 @@
+---
+description: Revisão da Proposta - Quality Assurance (BMAD-Editais)
+---
+# Workflow: Revisão de Proposta (QA)
+
+Este workflow realiza uma revisão de qualidade completa da proposta antes da submissão final.
+
+## Pré-requisitos
+- Fases 1-4 concluídas e aprovadas
+- Fase 5 (Validação DVP) executada
+- Arquivos prontos para submissão
+
+## Passos
+
+1. **Carregar Todos os Documentos**
+   - Leia `FASE1_ANALISE.md` (contexto do edital)
+   - Leia `FASE2_PLANEJAMENTO.md` (ideias e escolha)
+   - Leia `FASE3_SOLUCAO.md` (proposta técnica)
+   - Leia `FASE4_IMPLEMENTACAO.md` (plano operacional e orçamento)
+   - Leia `FASE5_VALIDACAO.md` (validação estrutural DVP)
+   - Leia o edital original para comparação
+
+2. **Checklist de Completude**
+   Verifique se todos os itens exigidos estão presentes:
+   - [ ] Título do projeto
+   - [ ] Resumo executivo
+   - [ ] Justificativa/diagnóstico
+   - [ ] Objetivos (geral + específicos)
+   - [ ] Metodologia detalhada
+   - [ ] Público-alvo e beneficiários
+   - [ ] Cronograma completo
+   - [ ] Orçamento detalhado
+   - [ ] Equipe técnica qualificada
+   - [ ] Indicadores e metas
+   - [ ] Plano de sustentabilidade (se exigido)
+   - [ ] Documentos obrigatórios anexados
+
+3. **Checklist de Coerência Interna**
+   - [ ] Problema → Objetivos (os objetivos resolvem o problema?)
+   - [ ] Objetivos → Metodologia (a metodologia alcança os objetivos?)
+   - [ ] Metodologia → Atividades (as atividades implementam a metodologia?)
+   - [ ] Atividades → Cronograma (o cronograma é realista?)
+   - [ ] Atividades → Orçamento (o orçamento está alinhado com as atividades?)
+   - [ ] Equipe → Atividades (a equipe tem capacidade para executar?)
+
+4. **Checklist de Alinhamento ao Edital**
+   - [ ] Projeto atende ao objeto do edital?
+   - [ ] Público-alvo está dentro dos critérios de elegibilidade?
+   - [ ] Orçamento está dentro do teto permitido?
+   - [ ] Contrapartida (se exigida) está contemplada?
+   - [ ] Prazo de execução compatível?
+   - [ ] Critérios de pontuação atendidos?
+
+5. **Simulação de Avaliação**
+   - Identifique os critérios de pontuação do edital
+   - Simule a pontuação para cada critério (0-10)
+   - Calcule score total projetado
+   - Compare com histórico de editais anteriores (se disponível)
+   - Identifique se a pontuação é competitiva
+
+6. **Análise de Pontos Fortes e Fracos**
+   
+   **Pontos Fortes:**
+   - Liste 3-5 aspectos mais competitivos da proposta
+   - Destaque diferenciais e inovações
+   
+   **Pontos Fracos:**
+   - Identifique 3-5 áreas de melhoria
+   - Sinalize riscos de rejeição
+   
+   **Oportunidades de Melhoria:**
+   - Sugestões concretas para fortalecer a proposta
+   - Priorizadas por impacto (Alta/Média/Baixa)
+
+7. **Verificação de Qualidade Textual**
+   - [ ] Linguagem clara e objetiva?
+   - [ ] Sem erros gramaticais ou ortográficos?
+   - [ ] Formatação consistente?
+   - [ ] Resposta objetiva às perguntas do edital?
+   - [ ] Limite de caracteres/páginas respeitado?
+
+8. **Verificação da Validação DVP**
+   - Revise o relatório `FASE5_VALIDACAO.md`
+   - Confirme que $C(S) \geq 0.70$ (limiar crítico)
+   - Se classificação foi REFORMULÁVEL, verifique se ajustes foram implementados
+   - Se classificação foi INVIÁVEL, **não prossiga com submissão**
+
+9. **Gerar Relatório de Revisão**
+   
+   Crie `REVIEW_REPORT.md` contendo:
+   - **Resumo Executivo** (3-5 linhas sobre viabilidade)
+   - **Checklists Completos** (com marcações OK/PENDENTE)
+   - **Score Simulado** (pontuação estimada e análise competitiva)
+   - **Pontos Fortes** (lista detalhad)
+   - **Pontos Fracos** (lista detalhada com severidade)
+   - **Recomendações Prioritárias** (ações corretivas sugeridas)
+   - **Decisão Final**: APROVAR PARA SUBMISSÃO | AJUSTAR | REPROVAR
+
+10. **Apresentar ao Usuário**
+    - Mostre o relatório completo
+    - Destaque pontos críticos em formato de alerta
+    - Pergunte: "Deseja proceder com a submissão ou realizar ajustes?"
+    - Aguarde resposta antes de qualquer ação
+
+## Critérios de Aprovação
+
+A proposta está pronta para submissão SE:
+- ✅ Todos os itens obrigatórios estão presentes
+- ✅ Coerência estrutural DVP $\geq$ 70%
+- ✅ Score simulado é competitivo (>60% da pontuação máxima)
+- ✅ Não há pontos fracos de severidade crítica
+
+## Comandos de Usuário
+
+- `REVISAR PROPOSTA` → Executa este workflow completo
+- `SIMULAR PONTUAÇÃO` → Apenas simulação de avaliação (passo 5)
+- `VERIFICAR COMPLETUDE` → Apenas checklist de completude (passo 2)
+
+## Observações
+
+- Esta revisão complementa a Fase 5 (DVP), focando em critérios do edital
+- DVP valida coerência estrutural; esta revisão valida aderência ao edital
+- Use este workflow antes de cada submissão, mesmo para editais já validados

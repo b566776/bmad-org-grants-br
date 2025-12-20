@@ -1,0 +1,6 @@
+# Dependências do bmad-org-grants-br
+# Instale com: pip install -r requirements.txt
+
+# Conversão de PDF para Markdown
+docling>=2.0.0  # Engine principal para conversão avançada de PDFs (OCR, tabelas, fórmulas)
+pypdf>=3.17.0   # Fallback para conversão básica quando Docling não disponível

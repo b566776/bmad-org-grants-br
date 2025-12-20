@@ -11,17 +11,73 @@ bmad-org-grants-br/
 ├─ module.yaml                        # Configuração principal do módulo
 ├─ README.md                           # Documentação do módulo
 ├─ IMPLEMENTATION_GUIDE.md             # Este arquivo
+├─ requirements.txt                    # Dependências Python (Docling, pypdf)
+├─ pdf_converter.py                    # Módulo de conversão PDF
+├─ converter_pdf_md.py                 # Script conversão individual
+├─ converter_pdfs_batch.py             # Script conversão em lote
+├─ config/
+│  └─ config.json                      # Configurações de conversão PDF
+├─ docs/
+│  ├─ BMAD_EDITAIS_OVERVIEW.md         # Visão geral do método
+│  ├─ DAVID_DVP_PROTOCOL.md            # Protocolo de validação DVP
+│  └─ CONVERSAO_PDF.md                 # Documentação de conversão PDF
 ├─ agents/
-│  └─ bgb-pm.customize.yaml           # Agente PM customizado para editais
+│  └─ bmm-pm.customize.yaml            # Agente PM customizado com DVP
 ├─ workflows/
-│  ├─ analise-edital.yaml            # Workflow para análise de editais
-│  └─ ideias-projeto.yaml            # Workflow para geração de ideias
+│  ├─ analise-edital.yaml              # Fase 1 - Análise
+│  ├─ ideias-projeto.yaml              # Fase 2 - Planejamento
+│  ├─ validacao-projeto.yaml           # Fase 5 - Validação DVP
+│  ├─ arquivar-projeto.yaml            # Arquivamento de projetos
+│  └─ review-proposal.yaml             # Revisão de qualidade
 ├─ memories/
-│  ├─ ONG_PORTFOLIO.md                # Portfólio estático da ONG
-│  └─ exemplos-editais/
-│     └─ edital-exemplo-1.md          # Exemplo de edital processado
+│  ├─ ORGANIZATION_PORTFOLIO.md        # Portfólio da organização
+│  ├─ editais/                         # Editais processados
+│  ├─ editais-anteriores/              # Histórico de editais
+│  └─ logs/
+│     └─ conversao_pdfs_log.txt        # Log de conversões PDF
 └─ templates/
-   └─ TEMPLATE_PROJETO_EDITAL.md      # Template para redacao de projetos
+   ├─ TEMPLATE_PROJETO_EDITAL.md       # Template de proposta
+   └─ TEMPLATE_VALIDACAO.md             # Template de validação DVP
+```
+
+## Configuração Inicial
+
+### Instalação de Dependências Python
+
+Antes de usar o módulo, instale as dependências para conversão de PDFs:
+
+```bash
+cd bmad-org-grants-br
+pip install -r requirements.txt
+```
+
+Isso instalará:
+- **Docling** (primário): Engine avançado com OCR, tabelas e fórmulas
+- **pypdf** (fallback): Engine básico para PDFs simples
+
+### Estrutura de Memórias Recomendada
+
+Organize a memória da organização em `memories/`:
+
+```
+memories/
+├── ORGANIZATION_PORTFOLIO.md          # Portfólio principal (Markdown)
+├── editais/                           # Editais em processamento
+│   └── [edital-nome]/
+│       ├── edital.pdf
+│       ├── edital.md                  # Gerado automaticamente
+│       └── projeto/
+│           ├── FASE1_ANALISE.md
+│           ├── FASE2_PLANEJAMENTO.md
+│           ├── FASE3_SOLUCAO.md
+│           ├── FASE4_IMPLEMENTACAO.md
+│           └── FASE5_VALIDACAO.md
+├── editais-anteriores/                # Histórico de projetos concluídos
+│   └── [edital-nome-anterior]/
+│       ├── edital.pdf
+│       └── projeto/
+└── logs/
+    └── conversao_pdfs_log.txt         # Log automático de conversões
 ```
 
 ## Próximos Passos de Implementação
@@ -102,6 +158,7 @@ O módulo implementa as 4 fases do BMAD adaptado para editais. Cada fase possui 
 | **2 - PLANNING** | `ideias-projeto.yaml` | `FASE2_PLANEJAMENTO.md` |
 | **3 - SOLUTION** | `desenho-projeto.yaml` | `FASE3_SOLUCAO.md` + `TEMPLATE_PROJETO_EDITAL.md` (preenchido) |
 | **4 - IMPLEMENTATION** | `implementacao-projeto.yaml` | `FASE4_IMPLEMENTACAO.md` |
+| **5 - VALIDATION** | `validacao-projeto.yaml` | `FASE5_VALIDACAO.md` (Protocolo DVP) |
 
 ### Documentação das Fases
 
