@@ -1,1 +1,37 @@
+version: "1.0"
+name: "analise-edital"
+description: >
+  Workflow para analisar edital, gerar resumo técnico, checklist de requisitos
+  e sugestões iniciais de linhas de projeto para a ONG Amigos da Vida.
+
+inputs:
+  arquivo_pdf_edital:
+    description: "Caminho do arquivo PDF do edital (local ou já processado)."
+    required: false
+  arquivo_memoria_edital:
+    description: "Arquivo de memória do edital em .bmad-custom/memories/editais/<nome>.md."
+    required: true
+
+tasks:
+  - id: carregar-contexto
+    description: "Carregar conteúdo do edital e memória associada."
+    input:
+      pdf: "{{ inputs.arquivo_pdf_edital }}"
+      memoria: "{{ inputs.arquivo_memoria_edital }}"
+
+  - id: gerar-resumo
+    description: "Gerar resumo técnico do edital."
+    input:
+      memoria: "{{ tasks.carregar-contexto.output }}"
+
+  - id: gerar-checklist
+    description: "Gerar checklist de requisitos e documentos obrigatórios."
+    input:
+      resumo: "{{ tasks.gerar-resumo.output }}"
+
+outputs:
+  resumo_tecnico:
+    description: "Resumo técnico estruturado do edital."
+  checklist_requisitos:
+    description: "Checklist de requisitos e documentos obrigatórios."
 
