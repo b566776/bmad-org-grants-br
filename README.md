@@ -10,7 +10,7 @@ Módulo BMAD v6 para análise de editais e redação de projetos para organizaç
 
 ### ✨ Características Principais
 
-- **4 Fases Estruturadas**: Analysis → Planning → Solution → Implementation
+- 54 Fases Estruturadas**: Analysis → Planning → Solution → Implementation
 - **IA Especializada em Cada Fase**: Analista, Estrategista, Arquiteto, Gestor
 - **Base de Conhecimento Integrada**: Memória automática da organização (portfólio, relatórios, certificações)
 - **Templates Prontos**: Estrutura padronizada para todas as propostas
