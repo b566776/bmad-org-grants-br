@@ -7,7 +7,7 @@ Este workflow realiza uma revisão de qualidade completa da proposta antes da su
 
 ## Pré-requisitos
 - Fases 1-4 concluídas e aprovadas
-- Fase 5 (Validação DVP) executada
+- Fase 5 (Validação EVL-like) executada
 - Arquivos prontos para submissão
 
 ## Passos
@@ -17,7 +17,7 @@ Este workflow realiza uma revisão de qualidade completa da proposta antes da su
    - Leia `FASE2_PLANEJAMENTO.md` (ideias e escolha)
    - Leia `FASE3_SOLUCAO.md` (proposta técnica)
    - Leia `FASE4_IMPLEMENTACAO.md` (plano operacional e orçamento)
-   - Leia `FASE5_VALIDACAO.md` (validação estrutural DVP)
+   - Leia `FASE5_VALIDACAO.md` (relatório de validação EVL-like)
    - Leia o edital original para comparação
 
 2. **Checklist de Completude**
@@ -79,11 +79,10 @@ Este workflow realiza uma revisão de qualidade completa da proposta antes da su
    - [ ] Resposta objetiva às perguntas do edital?
    - [ ] Limite de caracteres/páginas respeitado?
 
-8. **Verificação da Validação DVP**
-   - Revise o relatório `FASE5_VALIDACAO.md`
-   - Confirme que $C(S) \geq 0.70$ (limiar crítico)
-   - Se classificação foi REFORMULÁVEL, verifique se ajustes foram implementados
-   - Se classificação foi INVIÁVEL, **não prossiga com submissão**
+8. **Verificação do Gate EVL-like**
+   - Revise `FASE5_VALIDACAO.md`
+   - Confirme que o status está **PASS** (0 erros)
+   - Se houver **FAIL**/**erros**, **não prossiga com submissão** até corrigir e revalidar
 
 9. **Gerar Relatório de Revisão**
    
@@ -106,7 +105,7 @@ Este workflow realiza uma revisão de qualidade completa da proposta antes da su
 
 A proposta está pronta para submissão SE:
 - ✅ Todos os itens obrigatórios estão presentes
-- ✅ Coerência estrutural DVP $\geq$ 70%
+- ✅ Gate EVL-like passou (0 erros)
 - ✅ Score simulado é competitivo (>60% da pontuação máxima)
 - ✅ Não há pontos fracos de severidade crítica
 
@@ -118,6 +117,6 @@ A proposta está pronta para submissão SE:
 
 ## Observações
 
-- Esta revisão complementa a Fase 5 (DVP), focando em critérios do edital
-- DVP valida coerência estrutural; esta revisão valida aderência ao edital
+- Esta revisão complementa a Fase 5 (EVL-like), focando em critérios do edital
+- O gate EVL-like reduz inconsistências básicas; esta revisão valida aderência ao edital e qualidade final
 - Use este workflow antes de cada submissão, mesmo para editais já validados

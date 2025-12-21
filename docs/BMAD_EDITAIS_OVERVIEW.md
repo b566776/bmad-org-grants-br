@@ -105,35 +105,23 @@ Transformar a solução em plano operacional. A IA atua como **Scrum Master + Op
 
 ---
 
-#### **FASE 5 — VALIDATION (Validação Estrutural)**
+#### **FASE 5 — VALIDATION (Validação Determinística)**
 
-**Novo conceito introduzido: Protocolo DAVID-ε · DVP**
+**Conceito: validação determinística (EVL-like)**
 
-Validar a coerência estrutural da proposta antes da submissão. A IA atua como **Validador de Coerência Estrutural**.
+Validar os artefatos do projeto por meio de regras **objetivas** (sem heurística), atuando como um **gate** antes de revisão/submissão. A IA atua como **Validador determinístico (EVL-like)**.
 
 **Processo:**
 
-1. Aplicação do protocolo DVP (David Validation Protocol)
-2. Avaliação de 7 métricas estruturais ($m_1$ a $m_7$)
-3. Cálculo da coerência estrutural global $C(S)$
-4. Classificação: RESOLÚVEL | REFORMULÁVEL | ESTRUTURALMENTE INVIÁVEL
-5. Geração de plano de ajustes (se necessário)
-
-**Métricas Avaliadas:**
-- $m_1$: Consistência interna (ausência de contradições)
-- $m_2$: Alinhamento entre subsistemas (cronograma, orçamento, equipe)
-- $m_3$: Estabilidade estrutural (robustez frente a riscos)
-- $m_4$: Capacidade de emergência (potencial de impacto ampliado)
-- $m_5$: Densidade informacional (qualidade das informações)
-- $m_6$: Relação sinal/ruído (clareza da comunicação)
-- $m_7$: Conservação de sentido global (alinhamento com edital e missão)
+1. Executar o validador EVL-like sobre o diretório do projeto
+2. Registrar o resultado no relatório `FASE5_VALIDACAO.md`
+3. Se houver **erros**, bloquear avanço e orientar correções (refazer fase / completar template)
+4. Se houver apenas **avisos**, registrar e recomendar ajustes
 
 **Entrega:** `FASE5_VALIDACAO.md`
-- Relatório completo de validação estrutural
-- Pontuação detalhada de cada métrica
-- Cálculo de $C(S)$ (coerência estrutural)
-- Classificação e recomendações
-- Parecer final de aprovação para submissão
+- Resumo do resultado do gate (PASS/FAIL)
+- Lista objetiva de erros/avisos e ações corretivas
+- Referência aos relatórios automáticos do validador
 
 ---
 
@@ -145,7 +133,7 @@ Validar a coerência estrutural da proposta antes da submissão. A IA atua como 
 | **2 - Planning** | Product Manager | Gerar ideias, modelar propostas, recomendar estratégias |
 | **3 - Solution** | Architect | Desenhar solução técnica completa e estruturada |
 | **4 - Implementation** | Scrum Master | Operacionalizar plano, cronograma e orçamento |
-| **5 - Validation** | Validador DVP | Aplicar protocolo de coerência estrutural DAVID-ε |
+| **5 - Validation** | Validador EVL-like | Executar validação determinística por regras (gate) |
 
 ---
 
@@ -153,9 +141,9 @@ Validar a coerência estrutural da proposta antes da submissão. A IA atua como 
 
 - **README.md**: Visão geral do módulo BGb
 - **IMPLEMENTATION_GUIDE.md**: Guia de implementação prática
-- **docs/DAVID_DVP_PROTOCOL.md**: Protocolo de validação estrutural (Fase 5)
+- **docs/VALIDACAO_EVL_LIKE.md**: Validação determinística (EVL-like) (Fase 5)
 - **templates/TEMPLATE_PROJETO_EDITAL.md**: Template padrão para projetos
-- **templates/TEMPLATE_VALIDACAO.md**: Template de relatório de validação DVP
+- **templates/TEMPLATE_VALIDACAO.md**: Template de relatório de validação (EVL-like)
 - **agents/bmm-pm.customize.yaml**: Configuração da persona de PM
 - **workflows/**: Workflows para cada fase (incluindo validacao-projeto.yaml)
 

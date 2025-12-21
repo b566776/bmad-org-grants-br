@@ -179,7 +179,7 @@ python approval_predictor.py memories/editais/edital-xyz/projeto/
 
 📋 SCORES POR CRITÉRIO:
 ----------------------------------------------------------------------
-Coerência Estrutural (DVP)............. ████████████████ 80%
+Validação EVL-like (gate).............. ████████████████ 80%
 Alinhamento com Edital................. ██████████████ 70%
 ...
 ```
@@ -310,7 +310,7 @@ ranking = comparar_propostas(propostas)
 
 **Comando para IA:**
 ```
-Modifique o approval_predictor.py para dar mais peso (30%) ao critério de "Alinhamento com Edital" e menos peso ao DVP (20%)
+Modifique o approval_predictor.py para dar mais peso (30%) ao critério de "Alinhamento com Edital" e menos peso ao gate EVL-like (20%)
 ```
 
 **Código para Editar:**
@@ -322,7 +322,7 @@ Localize a classe `ApprovalPredictor` no arquivo `approval_predictor.py`:
 class ApprovalPredictor:
     def __init__(self):
         self.weights = {
-            "dvp_score": 0.20,           # ALTERADO: era 0.25
+            "evl_gate_score": 0.20,      # ALTERADO: era 0.25
             "alignment_score": 0.30,     # ALTERADO: era 0.20
             "budget_adequacy": 0.15,
             "team_qualification": 0.15,
@@ -335,7 +335,7 @@ class ApprovalPredictor:
 **Prompt Direto:**
 ```
 Abra approval_predictor.py e altere os pesos em self.weights para:
-- dvp_score: 0.20
+- evl_gate_score: 0.20
 - alignment_score: 0.30
 - budget_adequacy: 0.15
 - team_qualification: 0.15
@@ -384,7 +384,7 @@ def gerar_dashboard_ascii(projeto_dir):
     # Gráficos ASCII
     for criterion, score in sorted(analysis["scores"].items(), key=lambda x: x[1], reverse=True):
         name_map = {
-            "dvp_score": "Coerência Estrutural (DVP)",
+            "evl_gate_score": "Validação EVL-like (gate)",
             "alignment_score": "Alinhamento com Edital",
             "budget_adequacy": "Adequação Orçamentária",
             "team_qualification": "Qualificação da Equipe",
@@ -507,7 +507,7 @@ gerar_dashboard_ascii("memories/editais/edital-xyz/projeto/")
 
 - **README geral**: [../README.md](../README.md)
 - **Implementação**: [../IMPLEMENTATION_GUIDE.md](../IMPLEMENTATION_GUIDE.md)
-- **Protocolo DVP**: [DAVID_DVP_PROTOCOL.md](./DAVID_DVP_PROTOCOL.md)
+- **Validação EVL-like**: [VALIDACAO_EVL_LIKE.md](./VALIDACAO_EVL_LIKE.md)
 
 ---
 

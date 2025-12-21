@@ -177,7 +177,7 @@ python converter_pdfs_batch.py "memories" --recursive
 3. **Fase 2 - Planejamento**: Usar `IR PARA FASE 2` → gera `FASE2_PLANEJAMENTO.md` com ideias de projetos
 4. **Fase 3 - Solução**: Usar `IR PARA FASE 3` → preenche `TEMPLATE_PROJETO_EDITAL.md` e gera `FASE3_SOLUCAO.md`
 5. **Fase 4 - Implementação**: Usar `IR PARA FASE 4` → gera `FASE4_IMPLEMENTACAO.md` com plano de trabalho, orçamento e checklist
-6. 6. **Fase 5 - Validação**: Usar `VALIDAR` → gera `FASE5_VALIDACAO.md` com verificação de coeência estrutural (DVP-DAVID)
+6. 6. **Fase 5 - Validação**: Usar `VALIDAR` → gera `FASE5_VALIDACAO.md` com validação determinística (EVL-like) e relatório de pendências
 
 ### Comandos de Navegação
 
@@ -211,7 +211,7 @@ Arquivo JSON com +50 links organizados em 8 categorias:
 ### Análise Preditiva de Chances de Aprovação
 
 Script Python que estima probabilidade de aprovação baseado em 7 critérios:
-- Coerência Estrutural DVP (25%)
+- Validação determinística (EVL-like) (25%)
 - Alinhamento com Edital (20%)
 - Adequação Orçamentária (15%)
 - Qualificação da Equipe (15%)
@@ -239,7 +239,7 @@ bmad-org-grants-br/
 ├── config/
 │   └── config.json                    # Configuração de PDF
 ├── agents/
-│   └── bmm-pm.customize.yaml          # Agente PM com DVP
+│   └── bmm-pm.customize.yaml          # Agente PM (validação EVL-like)
 ├── memories/
 │   ├── ORGANIZATION_PORTFOLIO.md      # Portfólio da organização
 │   ├── links_uteis.json               # Links categorizados
@@ -247,7 +247,7 @@ bmad-org-grants-br/
 │   └── logs/                          # Logs de conversão
 ├── templates/
 │   ├── TEMPLATE_PROJETO_EDITAL.md     # Template de proposta
-│   └── TEMPLATE_VALIDACAO.md          # Template DVP
+│   └── TEMPLATE_VALIDACAO.md          # Template de validação (EVL-like)
 ├── workflows/
 │   ├── analise-edital.yaml            # FASE 1
 │   ├── ideias-projeto.yaml            # FASE 2
@@ -256,9 +256,9 @@ bmad-org-grants-br/
 │   └── review-proposal.yaml           # Revisão QA
 ├── docs/
 │   ├── BMAD_EDITAIS_OVERVIEW.md       # Visão geral
-│   ├── DAVID_DVP_PROTOCOL.md          # Protocolo DVP
 │   ├── CONVERSAO_PDF.md               # Conversão PDF
-│   └── FEATURES_OPCIONAIS.md          # Features extras
+│   ├── FEATURES_OPCIONAIS.md          # Features extras
+│   └── VALIDACAO_EVL_LIKE.md          # Validação EVL-like (nativa do BMAD)
 ├── IMPLEMENTATION_GUIDE.md
 ├── README.md (este arquivo)
 └── module.yaml
@@ -274,15 +274,14 @@ bmad-org-grants-br/
 | **2** | **PLANNING** | Gerar ideias de projetos alinhadas | `FASE2_PLANEJAMENTO.md` |
 | **3** | **SOLUTION** | Desenhar proposta técnica completa | `FASE3_SOLUCAO.md` |
 | **4** | **IMPLEMENTATION** | Operacionalizar plano e orçamento | `FASE4_IMPLEMENTACAO.md` |
-| **5** | **VALIDATION** | Validar coerência estrutural da proposta | `FASE5_VALIDACAO.md` |
-
+| **5** | **VALIDATION** | Validar completude e consistência (gate EVL-like) | `FASE5_VALIDACAO.md` |
 Cada fase possui um agente IA especializado que atua com um papel distinto:
 
 - **Fase 1**: Analyst-PM (Analista de Requisitos + Gerente de Projeto)
 - **Fase 2**: Product Manager + Estrategista
 - **Fase 3**: Architect + Program Designer
 - **Fase 4**: Scrum Master + Operations Manager
-- **Fase 5**: Validador de Coerência Estrutural (DVP-DAVID)
+- **Fase 5**: Validador determinístico (EVL-like)
 
 ---
 
@@ -293,8 +292,8 @@ Cada fase possui um agente IA especializado que atua com um papel distinto:
 - Guia de implementação: [IMPLEMENTATION_GUIDE.md](./IMPLEMENTATION_GUIDE.md)
 - Conversão PDF: [docs/CONVERSAO_PDF.md](./docs/CONVERSAO_PDF.md)
 
-### Protocolo DVP (Fase 5)
-- Protocolo científico: [docs/DAVID_DVP_PROTOCOL.md](./docs/DAVID_DVP_PROTOCOL.md)
+### Validação EVL-like (Fase 5)
+- Guia: [docs/VALIDACAO_EVL_LIKE.md](./docs/VALIDACAO_EVL_LIKE.md)
 - Template de validação: [templates/TEMPLATE_VALIDACAO.md](./templates/TEMPLATE_VALIDACAO.md)
 
 ### Features Opcionais

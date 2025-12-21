@@ -19,14 +19,13 @@ bmad-org-grants-br/
 │  └─ config.json                      # Configurações de conversão PDF
 ├─ docs/
 │  ├─ BMAD_EDITAIS_OVERVIEW.md         # Visão geral do método
-│  ├─ DAVID_DVP_PROTOCOL.md            # Protocolo de validação DVP
 │  └─ CONVERSAO_PDF.md                 # Documentação de conversão PDF
 ├─ agents/
-│  └─ bmm-pm.customize.yaml            # Agente PM customizado com DVP
+│  └─ bmm-pm.customize.yaml            # Agente PM (validação EVL-like)
 ├─ workflows/
 │  ├─ analise-edital.yaml              # Fase 1 - Análise
 │  ├─ ideias-projeto.yaml              # Fase 2 - Planejamento
-│  ├─ validacao-projeto.yaml           # Fase 5 - Validação DVP
+│  ├─ validacao-projeto.yaml           # Fase 5 - Validação (EVL-like)
 │  ├─ arquivar-projeto.yaml            # Arquivamento de projetos
 │  └─ review-proposal.yaml             # Revisão de qualidade
 ├─ memories/
@@ -37,7 +36,7 @@ bmad-org-grants-br/
 │     └─ conversao_pdfs_log.txt        # Log de conversões PDF
 └─ templates/
    ├─ TEMPLATE_PROJETO_EDITAL.md       # Template de proposta
-   └─ TEMPLATE_VALIDACAO.md             # Template de validação DVP
+   └─ TEMPLATE_VALIDACAO.md             # Template de validação (EVL-like)
 ```
 
 ## Configuração Inicial
@@ -158,7 +157,7 @@ O módulo implementa as 4 fases do BMAD adaptado para editais. Cada fase possui 
 | **2 - PLANNING** | `ideias-projeto.yaml` | `FASE2_PLANEJAMENTO.md` |
 | **3 - SOLUTION** | `desenho-projeto.yaml` | `FASE3_SOLUCAO.md` + `TEMPLATE_PROJETO_EDITAL.md` (preenchido) |
 | **4 - IMPLEMENTATION** | `implementacao-projeto.yaml` | `FASE4_IMPLEMENTACAO.md` |
-| **5 - VALIDATION** | `validacao-projeto.yaml` | `FASE5_VALIDACAO.md` (Protocolo DVP) |
+| **5 - VALIDATION** | `validacao-projeto.yaml` | `FASE5_VALIDACAO.md` (Validação EVL-like) |
 
 ### Documentação das Fases
 
