@@ -8,6 +8,7 @@ description: Fase 4 - Implementação e Orçamento (BMAD-Editais)
    - Leia `FASE2_PLANEJAMENTO.md` (ideia priorizada e premissas)
    - Leia `FASE3_SOLUCAO.md` (objetivos, metas, metodologia, indicadores e teoria da mudança)
    - (Se existir) Leia `QUESTIONARIO_PREENCHIDO.md` (perguntas + limites) para manter as respostas consistentes com o orçamento e o plano de execução
+   - Se precisar de informações institucionais (capacidade operacional, equipe, histórico), consulte `_bmad/modules/bmad-org-grants-br/memories/` (e seus subdiretórios)
    - Se existirem anexos/modelos do edital em `memories/editais/<edital-nome>/` (ex.: planilhas `.xlsx`),
      leia também os `.md` gerados ao lado dessas planilhas (ex.: `modelo_orcamento.xlsx` → `modelo_orcamento.md`)
      para seguir o formato/categorias exigidos e evitar itens vedados.

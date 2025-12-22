@@ -30,7 +30,7 @@ Compreender profundamente o edital e o contexto da organização proponente. A I
 **Processo:**
 
 1. Leitura automática do edital (conversão PDF → Markdown)
-2. Incorporação da base de conhecimento da Organização exclusivamente do diretório `baseDeConhecimento/` e seus subdiretórios
+2. Incorporação da base de conhecimento da Organização exclusivamente do diretório `_bmad/modules/bmad-org-grants-br/memories/` e seus subdiretórios
 3. Extração de requisitos críticos: objeto, público-alvo, valores, prazos, critérios de pontuação
 4. Diagnóstico situacional: problemas, oportunidades, restrições
 5. Micro-checkpoint: **Filtro de inelegibilidade (red flags)** → detectar critérios que desclassificariam a Organização imediatamente
@@ -51,10 +51,11 @@ Gerar ideias de projetos alinhadas ao edital. A IA atua como **Product Manager +
 
 **Processo:**
 
-1. Brainstorming de 2-4 ideias de projetos
-2. Para cada ideia: objetivo geral, objetivos específicos, público, resultados esperados, ODS
-3. Análise comparativa de viabilidade (tabela de critérios)
-4. Recomendação fundamentada
+1. Incorporação da base de conhecimento da Organização exclusivamente do diretório `_bmad/modules/bmad-org-grants-br/memories/` e seus subdiretórios
+2. Brainstorming de 2-4 ideias de projetos
+3. Para cada ideia: objetivo geral, objetivos específicos, público, resultados esperados, ODS
+4. Análise comparativa de viabilidade (tabela de critérios)
+5. Recomendação fundamentada
 
 **Entrega:** `FASE2_PLANEJAMENTO.md`
 - Ideias detalhadas com justificativas
@@ -87,16 +88,17 @@ Desenhar a proposta final escolhida. A IA atua como **Architect + Program Design
 
 **Processo:**
 
-1. Título e resumo executivo
-2. Justificativa com diagnóstico fundamentado
-3. Objetivos (geral + 3-6 específicos mensuráveis)
-4. Público-alvo detalhado com critérios de elegibilidade
-5. Componentes/eixos de atuação
-6. Matriz de indicadores (indicador | meta | fonte de verificação)
-7. Estratégia de sustentabilidade
-8. Alinhamento com ODS e metas específicas
-9. Micro-checkpoint: **Teoria da Mudança** (Atividade → Produto → Resultado → Impacto)
-10. Micro-checkpoint: **Análise de Riscos** (Risco → Mitigação)
+1. Incorporação da base de conhecimento da Organização exclusivamente do diretório `_bmad/modules/bmad-org-grants-br/memories/` e seus subdiretórios
+2. Título e resumo executivo
+3. Justificativa com diagnóstico fundamentado
+4. Objetivos (geral + 3-6 específicos mensuráveis)
+5. Público-alvo detalhado com critérios de elegibilidade
+6. Componentes/eixos de atuação
+7. Matriz de indicadores (indicador | meta | fonte de verificação)
+8. Estratégia de sustentabilidade
+9. Alinhamento com ODS e metas específicas
+10. Micro-checkpoint: **Teoria da Mudança** (Atividade → Produto → Resultado → Impacto)
+11. Micro-checkpoint: **Análise de Riscos** (Risco → Mitigação)
 
 **Entrega:** `FASE3_SOLUCAO.md`
 - Proposta técnica completa e estruturada
@@ -112,13 +114,14 @@ Transformar a solução em plano operacional. A IA atua como **Scrum Master + Op
 
 **Processo:**
 
-1. Plano de trabalho detalhado (atividades, responsáveis, cronograma)
-2. Estrutura orçamentária por blocos de despesa
-3. Checklist de documentos exigidos pelo edital
-4. Extração e confirmação de perguntas para submissão
-5. Adaptação a formulários específicos (se fornecidos)
-6. Cronograma de execução (diagrama de Gantt em Markdown)
-7. Micro-checkpoint: **Consistência de valores** entre metas/resultados (Fase 3) e orçamento (Fase 4)
+1. Incorporação da base de conhecimento da Organização exclusivamente do diretório `_bmad/modules/bmad-org-grants-br/memories/` e seus subdiretórios
+2. Plano de trabalho detalhado (atividades, responsáveis, cronograma)
+3. Estrutura orçamentária por blocos de despesa
+4. Checklist de documentos exigidos pelo edital
+5. Extração e confirmação de perguntas para submissão
+6. Adaptação a formulários específicos (se fornecidos)
+7. Cronograma de execução (diagrama de Gantt em Markdown)
+8. Micro-checkpoint: **Consistência de valores** entre metas/resultados (Fase 3) e orçamento (Fase 4)
 
 **Entrega:** `FASE4_IMPLEMENTACAO.md`
 - Plano de trabalho operacional
