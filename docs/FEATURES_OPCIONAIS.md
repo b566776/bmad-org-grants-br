@@ -152,7 +152,7 @@ adicionar_link("fundacoes_institutos", novo_link)
 `approval_predictor.py`
 
 ### 📝 Descrição
-Analisa proposta completa e estima probabilidade de aprovação em 7 critérios ponderados.
+Analisa proposta completa e estima probabilidade de aprovação em 6 critérios ponderados.
 
 ---
 
@@ -179,7 +179,6 @@ python approval_predictor.py memories/editais/edital-xyz/projeto/
 
 📋 SCORES POR CRITÉRIO:
 ----------------------------------------------------------------------
-Validação EVL-like (gate).............. ████████████████ 80%
 Alinhamento com Edital................. ██████████████ 70%
 ...
 ```
@@ -205,7 +204,7 @@ def analisar_e_alertar(projeto_dir, threshold=0.60):
     proposal_files = {}
     for fase_num, fase_nome in [
         ("1", "ANALISE"), ("3", "SOLUCAO"), 
-        ("4", "IMPLEMENTACAO"), ("5", "VALIDACAO")
+        ("4", "IMPLEMENTACAO")
     ]:
         fase_file = Path(projeto_dir) / f"FASE{fase_num}_{fase_nome}.md"
         if fase_file.exists():
@@ -310,7 +309,7 @@ ranking = comparar_propostas(propostas)
 
 **Comando para IA:**
 ```
-Modifique o approval_predictor.py para dar mais peso (30%) ao critério de "Alinhamento com Edital" e menos peso ao gate EVL-like (20%)
+Modifique o approval_predictor.py para dar mais peso (30%) ao critério de "Alinhamento com Edital" e ajustar os demais pesos proporcionalmente.
 ```
 
 **Código para Editar:**
@@ -322,12 +321,11 @@ Localize a classe `ApprovalPredictor` no arquivo `approval_predictor.py`:
 class ApprovalPredictor:
     def __init__(self):
         self.weights = {
-            "evl_gate_score": 0.20,      # ALTERADO: era 0.25
-            "alignment_score": 0.30,     # ALTERADO: era 0.20
-            "budget_adequacy": 0.15,
-            "team_qualification": 0.15,
-            "innovation": 0.10,
-            "social_impact": 0.05,       # AJUSTADO: era 0.10
+            "alignment_score": 0.30,     # Exemplo
+            "budget_adequacy": 0.20,
+            "team_qualification": 0.20,
+            "innovation": 0.15,
+            "social_impact": 0.10,
             "sustainability": 0.05
         }
 ```
@@ -335,12 +333,11 @@ class ApprovalPredictor:
 **Prompt Direto:**
 ```
 Abra approval_predictor.py e altere os pesos em self.weights para:
-- evl_gate_score: 0.20
 - alignment_score: 0.30
-- budget_adequacy: 0.15
-- team_qualification: 0.15
-- innovation: 0.10
-- social_impact: 0.05
+- budget_adequacy: 0.20
+- team_qualification: 0.20
+- innovation: 0.15
+- social_impact: 0.10
 - sustainability: 0.05
 ```
 
@@ -363,7 +360,7 @@ def gerar_dashboard_ascii(projeto_dir):
     
     # Buscar arquivos
     proposal_files = {}
-    for fase_num, fase_nome in [("1", "ANALISE"), ("3", "SOLUCAO"), ("4", "IMPLEMENTACAO"), ("5", "VALIDACAO")]:
+    for fase_num, fase_nome in [("1", "ANALISE"), ("3", "SOLUCAO"), ("4", "IMPLEMENTACAO")]:
         fase_file = Path(projeto_dir) / f"FASE{fase_num}_{fase_nome}.md"
         if fase_file.exists():
             proposal_files[f"fase{fase_num}"] = str(fase_file)
@@ -384,7 +381,6 @@ def gerar_dashboard_ascii(projeto_dir):
     # Gráficos ASCII
     for criterion, score in sorted(analysis["scores"].items(), key=lambda x: x[1], reverse=True):
         name_map = {
-            "evl_gate_score": "Validação EVL-like (gate)",
             "alignment_score": "Alinhamento com Edital",
             "budget_adequacy": "Adequação Orçamentária",
             "team_qualification": "Qualificação da Equipe",
@@ -507,7 +503,6 @@ gerar_dashboard_ascii("memories/editais/edital-xyz/projeto/")
 
 - **README geral**: [../README.md](../README.md)
 - **Implementação**: [../IMPLEMENTATION_GUIDE.md](../IMPLEMENTATION_GUIDE.md)
-- **Validação EVL-like**: [VALIDACAO_EVL_LIKE.md](./VALIDACAO_EVL_LIKE.md)
 
 ---
 

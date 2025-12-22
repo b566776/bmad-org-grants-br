@@ -10,25 +10,17 @@ from pathlib import Path
 from typing import Dict, List, Tuple
 import re
 
-# Garantir UTF-8 no Windows (evita UnicodeEncodeError com emojis)
-try:
-    sys.stdout.reconfigure(encoding="utf-8")
-    sys.stderr.reconfigure(encoding="utf-8")
-except Exception:
-    pass
-
 
 class ApprovalPredictor:
     """Analisador preditivo de chances de aprovação de propostas"""
     
     def __init__(self):
         self.weights = {
-            "evl_gate_score": 0.25,      # Validação determinística (EVL-like)
-            "alignment_score": 0.20,     # Alinhamento com edital
-            "budget_adequacy": 0.15,     # Adequação orçamentária
-            "team_qualification": 0.15,  # Qualificação da equipe
-            "innovation": 0.10,          # Nível de inovação
-            "social_impact": 0.10,       # Impacto social esperado
+            "alignment_score": 0.25,     # Alinhamento com edital
+            "budget_adequacy": 0.20,     # Adequação orçamentária
+            "team_qualification": 0.20,  # Qualificação da equipe
+            "innovation": 0.15,          # Nível de inovação
+            "social_impact": 0.15,       # Impacto social esperado
             "sustainability": 0.05       # Sustentabilidade do projeto
         }
         
@@ -39,7 +31,7 @@ class ApprovalPredictor:
             # Abaixo de 45% = Muito baixa
         }
     
-    def analyze_proposal(self, proposal_files: Dict[str, str], project_dir: Path = None) -> Dict:
+    def analyze_proposal(self, proposal_files: Dict[str, str]) -> Dict:
         """
         Analisa uma proposta completa e retorna probabilidade de aprovação
         
@@ -48,8 +40,7 @@ class ApprovalPredictor:
                 {
                     "fase1": "path/to/FASE1_ANALISE.md",
                     "fase3": "path/to/FASE3_SOLUCAO.md",
-                    "fase4": "path/to/FASE4_IMPLEMENTACAO.md",
-                    "fase5": "path/to/FASE5_VALIDACAO.md"
+                    "fase4": "path/to/FASE4_IMPLEMENTACAO.md"
                 }
         
         Returns:
@@ -64,48 +55,37 @@ class ApprovalPredictor:
             "recommendations": []
         }
         
-        # 1. Analisar Gate EVL-like (validação determinística)
-        base_dir = project_dir
-        if base_dir is None:
-            # Tenta inferir do arquivo de fase 5 (ou de qualquer arquivo disponível)
-            for k in ["fase5", "fase4", "fase3", "fase1"]:
-                if k in proposal_files:
-                    base_dir = Path(proposal_files[k]).parent
-                    break
-        if base_dir is not None:
-            results["scores"]["evl_gate_score"] = self._analyze_evl_gate_score(base_dir)
-        
-        # 2. Analisar alinhamento com edital (Fase 1)
+        # 1. Analisar alinhamento com edital (Fase 1)
         if "fase1" in proposal_files:
             results["scores"]["alignment_score"] = self._analyze_alignment(
                 proposal_files["fase1"]
             )
         
-        # 3. Analisar adequação orçamentária (Fase 4)
+        # 2. Analisar adequação orçamentária (Fase 4)
         if "fase4" in proposal_files:
             results["scores"]["budget_adequacy"] = self._analyze_budget(
                 proposal_files["fase4"]
             )
         
-        # 4. Analisar qualificação da equipe (Fase 4)
+        # 3. Analisar qualificação da equipe (Fase 4)
         if "fase4" in proposal_files:
             results["scores"]["team_qualification"] = self._analyze_team(
                 proposal_files["fase4"]
             )
         
-        # 5. Analisar inovação (Fase 3)
+        # 4. Analisar inovação (Fase 3)
         if "fase3" in proposal_files:
             results["scores"]["innovation"] = self._analyze_innovation(
                 proposal_files["fase3"]
             )
         
-        # 6. Analisar impacto social (Fase 3)
+        # 5. Analisar impacto social (Fase 3)
         if "fase3" in proposal_files:
             results["scores"]["social_impact"] = self._analyze_social_impact(
                 proposal_files["fase3"]
             )
         
-        # 7. Analisar sustentabilidade (Fase 3)
+        # 6. Analisar sustentabilidade (Fase 3)
         if "fase3" in proposal_files:
             results["scores"]["sustainability"] = self._analyze_sustainability(
                 proposal_files["fase3"]
@@ -132,42 +112,6 @@ class ApprovalPredictor:
         )
         
         return results
-    
-    def _analyze_evl_gate_score(self, project_dir: Path) -> float:
-        """
-        Extrai um score (0..1) do gate EVL-like.
-        
-        Regra:
-        - Se houver erros: score = 0.0 (bloqueante)
-        - Se não houver erros: score decresce levemente com warnings
-        """
-        try:
-            fase5 = project_dir / "FASE5_VALIDACAO.md"
-            if fase5.exists():
-                content = fase5.read_text(encoding="utf-8", errors="ignore")
-                low = content.lower()
-
-                # Status explícito
-                if "status" in low and "fail" in low:
-                    return 0.0
-                if "status" in low and "pass" in low:
-                    # tenta extrair contagens "Erros:" e "Avisos:"
-                    m_err = re.search(r"erros?\\s*\\(?.*?\\)?\\s*:\\s*(\\d+)", low)
-                    m_warn = re.search(r"avisos?\\s*:\\s*(\\d+)", low)
-                    errors = int(m_err.group(1)) if m_err else 0
-                    warnings = int(m_warn.group(1)) if m_warn else 0
-                    if errors > 0:
-                        return 0.0
-                    penalty = min(0.30, warnings * 0.05)
-                    return max(0.70, 1.0 - penalty)
-
-                # Sem status claro, mas existe: assume executado com menor confiança
-                return 0.70
-
-            # Sem relatório: score neutro (não bloqueia, mas reduz confiança)
-            return 0.60
-        except Exception:
-            return 0.60
     
     def _analyze_alignment(self, filepath: str) -> float:
         """Analisa alinhamento com objetivos do edital"""
@@ -341,7 +285,6 @@ class ApprovalPredictor:
         weaknesses = []
         
         criterion_names = {
-            "evl_gate_score": "Validação EVL-like (gate)",
             "alignment_score": "Alinhamento com Edital",
             "budget_adequacy": "Adequação Orçamentária",
             "team_qualification": "Qualificação da Equipe",
@@ -367,11 +310,7 @@ class ApprovalPredictor:
         
         for criterion, score in scores.items():
             if score < 0.60:
-                if criterion == "evl_gate_score":
-                    recommendations.append(
-                        "🔴 CRÍTICO: Gate EVL-like falhou (ou não foi executado) — corrija erros e revalide antes de submeter"
-                    )
-                elif criterion == "alignment_score":
+                if criterion == "alignment_score":
                     recommendations.append(
                         "🟠 IMPORTANTE: Revisar alinhamento com objetivos do edital"
                     )
@@ -425,7 +364,6 @@ def generate_report(analysis: Dict) -> str:
     report.append("-" * 70)
     
     criterion_names = {
-        "evl_gate_score": "Validação EVL-like (gate)",
         "alignment_score": "Alinhamento com Edital",
         "budget_adequacy": "Adequação Orçamentária",
         "team_qualification": "Qualificação da Equipe",
@@ -486,11 +424,11 @@ def main():
     # Buscar arquivos das fases
     proposal_files = {}
     
-    for fase in ["FASE1_ANALISE", "FASE3_SOLUCAO", "FASE4_IMPLEMENTACAO", "FASE5_VALIDACAO"]:
+    for fase in ["FASE1_ANALISE", "FASE3_SOLUCAO", "FASE4_IMPLEMENTACAO"]:
         fase_file = project_dir / f"{fase}.md"
         if fase_file.exists():
-            key = fase.lower().replace("_", "").replace("analise", "1").replace("solucao", "3").replace("implementacao", "4").replace("validacao", "5")
-            key = f"fase{key[-1]}"  # fase1, fase3, fase4, fase5
+            key = fase.lower().replace("_", "").replace("analise", "1").replace("solucao", "3").replace("implementacao", "4")
+            key = f"fase{key[-1]}"  # fase1, fase3, fase4
             proposal_files[key] = str(fase_file)
     
     if not proposal_files:
@@ -503,7 +441,7 @@ def main():
     
     # Executar análise
     predictor = ApprovalPredictor()
-    analysis = predictor.analyze_proposal(proposal_files, project_dir=project_dir)
+    analysis = predictor.analyze_proposal(proposal_files)
     
     # Gerar relatório
     report = generate_report(analysis)

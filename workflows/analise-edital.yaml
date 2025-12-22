@@ -3,6 +3,9 @@ name: "analise-edital"
 description: >
   Workflow para analisar edital, gerar resumo técnico, checklist de requisitos
   e sugestões iniciais de linhas de projeto para a Organização.
+  Inclui micro-checkpoints de resiliência:
+  - Filtro de inelegibilidade (red flags / desclassificação imediata)
+  - Análise de “sentimento” do edital (palavras-chave e semântica valorizada)
 
 inputs:
   arquivo_pdf_edital:
@@ -29,9 +32,35 @@ tasks:
     input:
       resumo: "{{ tasks.gerar-resumo.output }}"
 
+  - id: filtro-inelegibilidade
+    description: >
+      Micro-checkpoint: detectar “red flags” de inelegibilidade que desqualificariam a Organização imediatamente.
+      Produza um parecer GO/NO-GO com evidências e itens faltantes para confirmar elegibilidade.
+    input:
+      contexto: "{{ tasks.carregar-contexto.output }}"
+      resumo: "{{ tasks.gerar-resumo.output }}"
+      checklist: "{{ tasks.gerar-checklist.output }}"
+
+  - id: analise-sentimento-edital
+    description: >
+      Micro-checkpoint: identificar a semântica valorizada pelo edital (palavras/expressões recorrentes),
+      sugerindo como replicar a linguagem na Fase 3 sem “encher linguiça”.
+    input:
+      contexto: "{{ tasks.carregar-contexto.output }}"
+      resumo: "{{ tasks.gerar-resumo.output }}"
+      checklist: "{{ tasks.gerar-checklist.output }}"
+
 outputs:
   resumo_tecnico:
     description: "Resumo técnico estruturado do edital."
   checklist_requisitos:
     description: "Checklist de requisitos e documentos obrigatórios."
+  inelegibilidade_red_flags:
+    description: >
+      Parecer GO/NO-GO (evidências) + lista de red flags: tempo mínimo de fundação, território/UF, CNPJ/registro,
+      certidões/regularidade, público-alvo restrito, natureza jurídica, contrapartidas impeditivas etc.
+  palavras_chave_valorizadas:
+    description: >
+      Palavras/expressões com alta ênfase no edital (ex.: inovação, escala, sustentabilidade, equidade),
+      com recomendação de uso na Fase 3 (frases-modelo e pontos onde inserir).
 

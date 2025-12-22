@@ -1,0 +1,48 @@
+---
+description: Fase 4 - Implementação e Orçamento (BMAD-Editais)
+---
+# Workflow Fase 4: Implementação (Plano Operacional)
+
+1. Carregar documentos-base
+   - Leia `FASE1_ANALISE.md` (requisitos, elegibilidade, prazos e teto financeiro)
+   - Leia `FASE2_PLANEJAMENTO.md` (ideia priorizada e premissas)
+   - Leia `FASE3_SOLUCAO.md` (objetivos, metas, metodologia, indicadores e teoria da mudança)
+   - (Se existir) Leia `QUESTIONARIO_PREENCHIDO.md` (perguntas + limites) para manter as respostas consistentes com o orçamento e o plano de execução
+
+2. Plano de trabalho detalhado
+   - Quebre o projeto em atividades executáveis (WBS simples)
+   - Para cada atividade, defina: responsável, periodicidade, local, insumos e entregáveis
+
+3. Cronograma (macro e/ou por mês)
+   - Monte um cronograma coerente com prazos do edital
+   - Garanta dependências realistas (atividades preparatórias antes das entregas)
+
+4. Orçamento por itens + justificativa
+   - Estruture o orçamento com: item, descrição, quantidade, valor unitário, total, base de cálculo
+   - Para cada item, escreva uma justificativa objetiva conectando o item às atividades
+   - Verifique conformidade: teto, categorias permitidas, contrapartida (se aplicável), vedações
+
+5. Micro-checkpoint: Consistência de Valores (Meta ↔ Orçamento)
+   - Extraia as **metas/resultados** declarados na Fase 3 (seção de indicadores / metas)
+   - Crie uma **matriz de rastreabilidade** ligando cada meta a pelo menos 1 item orçamentário
+   - Regras:
+     - Se existir meta sem item orçamentário associado → **ALERTA (lacuna)**
+     - Se existir item orçamentário relevante sem atividade/meta associada → **ALERTA (desalinhamento)**
+     - Se valores e escala do orçamento não sustentam a meta (ex.: meta alta com custos irrisórios) → **ALERTA (inconsistência)**
+   - Apresente um veredito final: **PASSOU / AJUSTAR** + lista de correções
+
+6. Checklist final para submissão
+   - Liste anexos e documentos exigidos pelo edital
+   - Se houver formulário web, garanta que `QUESTIONARIO_PREENCHIDO.md` esteja atualizado com:
+     - respostas coerentes com o orçamento e cronograma
+     - respostas dentro dos limites de caracteres
+
+7. Gerar entregável
+   - Crie o arquivo `FASE4_IMPLEMENTACAO.md` contendo:
+     - Plano de trabalho e cronograma
+     - Orçamento detalhado + justificativa
+     - Matriz Meta ↔ Orçamento (micro-checkpoint)
+     - Checklist de submissão e pendências
+   - (Entrega adicional, se aplicável) Atualize `QUESTIONARIO_PREENCHIDO.md` para refletir a versão final da Fase 4
+
+**Importante:** se o micro-checkpoint (Meta ↔ Orçamento) apontar lacunas, ajuste orçamento/atividades antes de prosseguir para revisão final.

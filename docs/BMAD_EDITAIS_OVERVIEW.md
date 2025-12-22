@@ -30,14 +30,18 @@ Compreender profundamente o edital e o contexto da organização proponente. A I
 **Processo:**
 
 1. Leitura automática do edital (conversão PDF → Markdown)
-2. Incorporação da base de conhecimento da Organizaçãoexclusivamente do diretório `baseDeConhecimento/` e seus subdiretórios
+2. Incorporação da base de conhecimento da Organização exclusivamente do diretório `baseDeConhecimento/` e seus subdiretórios
 3. Extração de requisitos críticos: objeto, público-alvo, valores, prazos, critérios de pontuação
 4. Diagnóstico situacional: problemas, oportunidades, restrições
+5. Micro-checkpoint: **Filtro de inelegibilidade (red flags)** → detectar critérios que desclassificariam a Organização imediatamente
+6. Micro-checkpoint: **Análise de “sentimento” do edital** → mapear palavras-chave/expressões valorizadas para orientar a semântica da Fase 3
 
 **Entrega:** `FASE1_ANALISE.md`
 - Resumo executivo (≤2 parágrafos)
 - Lista de até 12 perguntas estratégicas
 - Quadro-resumo: Problema | Público | Oportunidades | Restrições | Pontos Fortes da ONG
+- Parecer **GO/NO-GO** de elegibilidade + evidências (red flags)
+- Lista de **palavras-chave valorizadas** e recomendações de linguagem para a Fase 3
 
 #### **FASE 2 — PLANNING (Planejamento/Ideação)**
 
@@ -59,6 +63,22 @@ Gerar ideias de projetos alinhadas ao edital. A IA atua como **Product Manager +
 
 ---
 
+#### **Checkpoint — Questionário de Submissão (pós-Fase 2)**
+
+Muitos editais exigem submissão via formulário web com **perguntas específicas** e **limites de caracteres**. Este checkpoint captura esse rol e gera um artefato pronto para copiar/colar, mantendo rastreabilidade com as Fases 3 e 4.
+
+**Processo:**
+1. Coletar perguntas e limites (manual e/ou via URL do formulário)
+2. Consolidar deduplicando
+3. Redigir respostas dentro do limite (com versão curta quando necessário)
+4. (Opcional, sob comando explícito) navegar no formulário para extrair e/ou preencher, **sem nunca enviar**
+
+**Entrega:** `QUESTIONARIO_PREENCHIDO.md`
+- Perguntas + limites + respostas prontas para copiar/colar
+- Pendências (limites desconhecidos, campos não localizados, dados faltantes)
+
+---
+
 #### **FASE 3 — SOLUTION (Solução/Desenho Técnico)**
 
 **Equivalente ao "Build" original (arquitetura)**
@@ -75,6 +95,8 @@ Desenhar a proposta final escolhida. A IA atua como **Architect + Program Design
 6. Matriz de indicadores (indicador | meta | fonte de verificação)
 7. Estratégia de sustentabilidade
 8. Alinhamento com ODS e metas específicas
+9. Micro-checkpoint: **Teoria da Mudança** (Atividade → Produto → Resultado → Impacto)
+10. Micro-checkpoint: **Análise de Riscos** (Risco → Mitigação)
 
 **Entrega:** `FASE3_SOLUCAO.md`
 - Proposta técnica completa e estruturada
@@ -96,32 +118,13 @@ Transformar a solução em plano operacional. A IA atua como **Scrum Master + Op
 4. Extração e confirmação de perguntas para submissão
 5. Adaptação a formulários específicos (se fornecidos)
 6. Cronograma de execução (diagrama de Gantt em Markdown)
+7. Micro-checkpoint: **Consistência de valores** entre metas/resultados (Fase 3) e orçamento (Fase 4)
 
 **Entrega:** `FASE4_IMPLEMENTACAO.md`
 - Plano de trabalho operacional
 - Orçamento estruturado
 - Perguntas de submissão respondidas
 - Documentos de submissão prontos
-
----
-
-#### **FASE 5 — VALIDATION (Validação Determinística)**
-
-**Conceito: validação determinística (EVL-like)**
-
-Validar os artefatos do projeto por meio de regras **objetivas** (sem heurística), atuando como um **gate** antes de revisão/submissão. A IA atua como **Validador determinístico (EVL-like)**.
-
-**Processo:**
-
-1. Executar o validador EVL-like sobre o diretório do projeto
-2. Registrar o resultado no relatório `FASE5_VALIDACAO.md`
-3. Se houver **erros**, bloquear avanço e orientar correções (refazer fase / completar template)
-4. Se houver apenas **avisos**, registrar e recomendar ajustes
-
-**Entrega:** `FASE5_VALIDACAO.md`
-- Resumo do resultado do gate (PASS/FAIL)
-- Lista objetiva de erros/avisos e ações corretivas
-- Referência aos relatórios automáticos do validador
 
 ---
 
@@ -133,7 +136,6 @@ Validar os artefatos do projeto por meio de regras **objetivas** (sem heurístic
 | **2 - Planning** | Product Manager | Gerar ideias, modelar propostas, recomendar estratégias |
 | **3 - Solution** | Architect | Desenhar solução técnica completa e estruturada |
 | **4 - Implementation** | Scrum Master | Operacionalizar plano, cronograma e orçamento |
-| **5 - Validation** | Validador EVL-like | Executar validação determinística por regras (gate) |
 
 ---
 
@@ -141,14 +143,12 @@ Validar os artefatos do projeto por meio de regras **objetivas** (sem heurístic
 
 - **README.md**: Visão geral do módulo BGb
 - **IMPLEMENTATION_GUIDE.md**: Guia de implementação prática
-- **docs/VALIDACAO_EVL_LIKE.md**: Validação determinística (EVL-like) (Fase 5)
 - **templates/TEMPLATE_PROJETO_EDITAL.md**: Template padrão para projetos
-- **templates/TEMPLATE_VALIDACAO.md**: Template de relatório de validação (EVL-like)
 - **agents/bmm-pm.customize.yaml**: Configuração da persona de PM
-- **workflows/**: Workflows para cada fase (incluindo validacao-projeto.yaml)
+- **workflows/**: Workflows para cada fase
 
 ---
 
 **Desenvolvido por:** Usuário + Gemini AI  
-**Contexto:** BGb – BMAD Grants Brazil (Foco: Amigos da Vida)  
+**Contexto:** BGb – BMAD Grants Brazil (Foco: Organização)  
 **Data:** Dezembro 2025

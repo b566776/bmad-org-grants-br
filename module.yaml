@@ -7,7 +7,7 @@ subheader: "Módulo especializado em elaboração de propostas para editais púb
 
 org_name:
   prompt: "Qual é o nome da sua organização?"
-  default: "Amigos da Vida"
+  default: "Organização"
   result: "{value}"
 
 org_focus:

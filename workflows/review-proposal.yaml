@@ -7,7 +7,6 @@ Este workflow realiza uma revisão de qualidade completa da proposta antes da su
 
 ## Pré-requisitos
 - Fases 1-4 concluídas e aprovadas
-- Fase 5 (Validação EVL-like) executada
 - Arquivos prontos para submissão
 
 ## Passos
@@ -17,7 +16,6 @@ Este workflow realiza uma revisão de qualidade completa da proposta antes da su
    - Leia `FASE2_PLANEJAMENTO.md` (ideias e escolha)
    - Leia `FASE3_SOLUCAO.md` (proposta técnica)
    - Leia `FASE4_IMPLEMENTACAO.md` (plano operacional e orçamento)
-   - Leia `FASE5_VALIDACAO.md` (relatório de validação EVL-like)
    - Leia o edital original para comparação
 
 2. **Checklist de Completude**
@@ -41,6 +39,7 @@ Este workflow realiza uma revisão de qualidade completa da proposta antes da su
    - [ ] Metodologia → Atividades (as atividades implementam a metodologia?)
    - [ ] Atividades → Cronograma (o cronograma é realista?)
    - [ ] Atividades → Orçamento (o orçamento está alinhado com as atividades?)
+   - [ ] Metas/indicadores → Orçamento (cada meta relevante tem recursos previstos?)
    - [ ] Equipe → Atividades (a equipe tem capacidade para executar?)
 
 4. **Checklist de Alinhamento ao Edital**
@@ -79,12 +78,7 @@ Este workflow realiza uma revisão de qualidade completa da proposta antes da su
    - [ ] Resposta objetiva às perguntas do edital?
    - [ ] Limite de caracteres/páginas respeitado?
 
-8. **Verificação do Gate EVL-like**
-   - Revise `FASE5_VALIDACAO.md`
-   - Confirme que o status está **PASS** (0 erros)
-   - Se houver **FAIL**/**erros**, **não prossiga com submissão** até corrigir e revalidar
-
-9. **Gerar Relatório de Revisão**
+8. **Gerar Relatório de Revisão**
    
    Crie `REVIEW_REPORT.md` contendo:
    - **Resumo Executivo** (3-5 linhas sobre viabilidade)
@@ -95,7 +89,7 @@ Este workflow realiza uma revisão de qualidade completa da proposta antes da su
    - **Recomendações Prioritárias** (ações corretivas sugeridas)
    - **Decisão Final**: APROVAR PARA SUBMISSÃO | AJUSTAR | REPROVAR
 
-10. **Apresentar ao Usuário**
+9. **Apresentar ao Usuário**
     - Mostre o relatório completo
     - Destaque pontos críticos em formato de alerta
     - Pergunte: "Deseja proceder com a submissão ou realizar ajustes?"
@@ -105,7 +99,6 @@ Este workflow realiza uma revisão de qualidade completa da proposta antes da su
 
 A proposta está pronta para submissão SE:
 - ✅ Todos os itens obrigatórios estão presentes
-- ✅ Gate EVL-like passou (0 erros)
 - ✅ Score simulado é competitivo (>60% da pontuação máxima)
 - ✅ Não há pontos fracos de severidade crítica
 
@@ -117,6 +110,5 @@ A proposta está pronta para submissão SE:
 
 ## Observações
 
-- Esta revisão complementa a Fase 5 (EVL-like), focando em critérios do edital
-- O gate EVL-like reduz inconsistências básicas; esta revisão valida aderência ao edital e qualidade final
+- Esta revisão foca em critérios do edital e qualidade final do texto
 - Use este workflow antes de cada submissão, mesmo para editais já validados

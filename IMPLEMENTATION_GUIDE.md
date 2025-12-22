@@ -2,7 +2,7 @@
 
 ## Visão Geral
 
-Este módulo estende o BMAD v6 para criar um sistema especializado de análise de editais e redação de projetos. Está configurado especialmente para a organização **Amigos da Vida**, mas pode ser adaptado para qualquer ONG.
+Este módulo estende o BMAD v6 para criar um sistema especializado de análise de editais e redação de projetos. Está configurado especialmente para a organização **Organização**, mas pode ser adaptado para qualquer ONG.
 
 ## Estrutura de Diretórios
 
@@ -21,11 +21,12 @@ bmad-org-grants-br/
 │  ├─ BMAD_EDITAIS_OVERVIEW.md         # Visão geral do método
 │  └─ CONVERSAO_PDF.md                 # Documentação de conversão PDF
 ├─ agents/
-│  └─ bmm-pm.customize.yaml            # Agente PM (validação EVL-like)
+│  └─ bmm-pm.customize.yaml            # Agente PM customizado
 ├─ workflows/
 │  ├─ analise-edital.yaml              # Fase 1 - Análise
 │  ├─ ideias-projeto.yaml              # Fase 2 - Planejamento
-│  ├─ validacao-projeto.yaml           # Fase 5 - Validação (EVL-like)
+│  ├─ questionario-submissao.yaml      # Checkpoint pós-Fase 2 (formulário)
+│  ├─ implementacao-projeto.yaml       # Fase 4 - Implementação
 │  ├─ arquivar-projeto.yaml            # Arquivamento de projetos
 │  └─ review-proposal.yaml             # Revisão de qualidade
 ├─ memories/
@@ -36,7 +37,7 @@ bmad-org-grants-br/
 │     └─ conversao_pdfs_log.txt        # Log de conversões PDF
 └─ templates/
    ├─ TEMPLATE_PROJETO_EDITAL.md       # Template de proposta
-   └─ TEMPLATE_VALIDACAO.md             # Template de validação (EVL-like)
+ 
 ```
 
 ## Configuração Inicial
@@ -70,7 +71,7 @@ memories/
 │           ├── FASE2_PLANEJAMENTO.md
 │           ├── FASE3_SOLUCAO.md
 │           ├── FASE4_IMPLEMENTACAO.md
-│           └── FASE5_VALIDACAO.md
+│
 ├── editais-anteriores/                # Histórico de projetos concluídos
 │   └── [edital-nome-anterior]/
 │       ├── edital.pdf
@@ -96,7 +97,7 @@ O agente PM será configurado como especialista em editais:
 
 ### 3. Criar Memórias (memories/)
 
-- **ONG_PORTFOLIO.md**: Histórico, açoes, resultados, dados da Amigos da Vida
+- **ONG_PORTFOLIO.md**: Histórico, açoes, resultados, dados da Organização
 - **exemplos-editais/**: Editais já processados para referência
 
 ### 4. Criar Template (templates/)
@@ -137,10 +138,20 @@ npx bmad-method@alpha install
    - Acione `*ideias-projeto`
    - Selecione a ideia mais promissora
 
-4. **Redação**:
+4. **Questionário de Submissão (checkpoint)**:
+   - Acione `*questionario-submissao`
+   - Cole o rol de perguntas e limites (ou forneça a URL do formulário)
+   - Gere `QUESTIONARIO_PREENCHIDO.md` pronto para copiar/colar
+
+5. **Redação (Fase 3)**:
    - Acione `*projeto-completo`
    - Revise e adapte o rascunho do projeto
-   - Finalize para submissão
+   - Garanta que `QUESTIONARIO_PREENCHIDO.md` esteja coerente e dentro dos limites
+
+6. **Implementação (Fase 4)**:
+   - Acione `*implementacao-projeto`
+   - Gere `FASE4_IMPLEMENTACAO.md` e valide consistência meta↔orçamento
+   - Garanta que `QUESTIONARIO_PREENCHIDO.md` continue coerente e dentro dos limites
 
 ## Referências
 
@@ -157,7 +168,9 @@ O módulo implementa as 4 fases do BMAD adaptado para editais. Cada fase possui 
 | **2 - PLANNING** | `ideias-projeto.yaml` | `FASE2_PLANEJAMENTO.md` |
 | **3 - SOLUTION** | `desenho-projeto.yaml` | `FASE3_SOLUCAO.md` + `TEMPLATE_PROJETO_EDITAL.md` (preenchido) |
 | **4 - IMPLEMENTATION** | `implementacao-projeto.yaml` | `FASE4_IMPLEMENTACAO.md` |
-| **5 - VALIDATION** | `validacao-projeto.yaml` | `FASE5_VALIDACAO.md` (Validação EVL-like) |
+
+Checkpoint recomendado (pós-Fase 2):
+- `questionario-submissao.yaml` → `QUESTIONARIO_PREENCHIDO.md`
 
 ### Documentação das Fases
 

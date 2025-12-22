@@ -10,7 +10,7 @@ Módulo BMAD v6 para análise de editais e redação de projetos para organizaç
 
 ### ✨ Características Principais
 
-- 5 Fases Estruturadas**: Analysis → Planning → Solution → Implementation  → Validation
+- **4 Fases Estruturadas**: Analysis → Planning → Solution → Implementation
 - **IA Especializada em Cada Fase**: Analista, Estrategista, Arquiteto, Gestor
 - **Base de Conhecimento Integrada**: Memória automática da organização (portfólio, relatórios, certificações)
 - **Templates Prontos**: Estrutura padronizada para todas as propostas
@@ -175,9 +175,9 @@ python converter_pdfs_batch.py "memories" --recursive
 1. **Criar arquivo do edital**: `memories/editais/[edital-nome].md` com resumo extraído do PDF
 2. **Fase 1 - Análise**: Usar comando `INICIAR` no agente → gera `FASE1_ANALISE.md`
 3. **Fase 2 - Planejamento**: Usar `IR PARA FASE 2` → gera `FASE2_PLANEJAMENTO.md` com ideias de projetos
-4. **Fase 3 - Solução**: Usar `IR PARA FASE 3` → preenche `TEMPLATE_PROJETO_EDITAL.md` e gera `FASE3_SOLUCAO.md`
-5. **Fase 4 - Implementação**: Usar `IR PARA FASE 4` → gera `FASE4_IMPLEMENTACAO.md` com plano de trabalho, orçamento e checklist
-6. 6. **Fase 5 - Validação**: Usar `VALIDAR` → gera `FASE5_VALIDACAO.md` com validação determinística (EVL-like) e relatório de pendências
+4. **Checkpoint - Questionário de Submissão**: Usar `QUESTIONARIO SUBMISSAO` → gera/atualiza `QUESTIONARIO_PREENCHIDO.md` (perguntas + limites + respostas prontas para copiar/colar)
+5. **Fase 3 - Solução**: Usar `IR PARA FASE 3` → preenche `TEMPLATE_PROJETO_EDITAL.md` e gera `FASE3_SOLUCAO.md` (mantendo `QUESTIONARIO_PREENCHIDO.md` consistente com os limites)
+6. **Fase 4 - Implementação**: Usar `IR PARA FASE 4` → gera `FASE4_IMPLEMENTACAO.md` com plano de trabalho, orçamento e checklist (mantendo `QUESTIONARIO_PREENCHIDO.md` consistente com os limites)
 
 ### Comandos de Navegação
 
@@ -185,13 +185,10 @@ O usuário controla o fluxo através de comandos explícitos:
 
 - `INICIAR` → Inicia Fase 1
 - `IR PARA FASE 2` → Avança para Fase 2
+- `QUESTIONARIO SUBMISSAO` → Inicia checkpoint de questionário (pós-Fase 2)
 - `IR PARA FASE 3` → Avança para Fase 3
 - `IR PARA FASE 4` → Avança para Fase 4
 - `REFAZER FASE X` → Refaz uma fase específica
-
----
-
-- `IR PARA FASE 5` → Avança para Fase 5
 
 ---
 
@@ -211,7 +208,6 @@ Arquivo JSON com +50 links organizados em 8 categorias:
 ### Análise Preditiva de Chances de Aprovação
 
 Script Python que estima probabilidade de aprovação baseado em 7 critérios:
-- Validação determinística (EVL-like) (25%)
 - Alinhamento com Edital (20%)
 - Adequação Orçamentária (15%)
 - Qualificação da Equipe (15%)
@@ -239,7 +235,7 @@ bmad-org-grants-br/
 ├── config/
 │   └── config.json                    # Configuração de PDF
 ├── agents/
-│   └── bmm-pm.customize.yaml          # Agente PM (validação EVL-like)
+│   └── bmm-pm.customize.yaml          # Agente PM
 ├── memories/
 │   ├── ORGANIZATION_PORTFOLIO.md      # Portfólio da organização
 │   ├── links_uteis.json               # Links categorizados
@@ -247,18 +243,17 @@ bmad-org-grants-br/
 │   └── logs/                          # Logs de conversão
 ├── templates/
 │   ├── TEMPLATE_PROJETO_EDITAL.md     # Template de proposta
-│   └── TEMPLATE_VALIDACAO.md          # Template de validação (EVL-like)
 ├── workflows/
 │   ├── analise-edital.yaml            # FASE 1
 │   ├── ideias-projeto.yaml            # FASE 2
-│   ├── validacao-projeto.yaml         # FASE 5
+│   ├── questionario-submissao.yaml    # Checkpoint pós-FASE 2
+│   ├── implementacao-projeto.yaml     # FASE 4
 │   ├── arquivar-projeto.yaml          # Arquivamento
 │   └── review-proposal.yaml           # Revisão QA
 ├── docs/
 │   ├── BMAD_EDITAIS_OVERVIEW.md       # Visão geral
 │   ├── CONVERSAO_PDF.md               # Conversão PDF
-│   ├── FEATURES_OPCIONAIS.md          # Features extras
-│   └── VALIDACAO_EVL_LIKE.md          # Validação EVL-like (nativa do BMAD)
+│   └── FEATURES_OPCIONAIS.md          # Features extras
 ├── IMPLEMENTATION_GUIDE.md
 ├── README.md (este arquivo)
 └── module.yaml
@@ -266,7 +261,7 @@ bmad-org-grants-br/
 
 ---
 
-## 🔄5  Fases do BMAD-Editais
+## 🔄 4 Fases do BMAD-Editais
 
 | Fase | Nome | Objetivo | Saída |
 |------|------|----------|-------|
@@ -274,14 +269,13 @@ bmad-org-grants-br/
 | **2** | **PLANNING** | Gerar ideias de projetos alinhadas | `FASE2_PLANEJAMENTO.md` |
 | **3** | **SOLUTION** | Desenhar proposta técnica completa | `FASE3_SOLUCAO.md` |
 | **4** | **IMPLEMENTATION** | Operacionalizar plano e orçamento | `FASE4_IMPLEMENTACAO.md` |
-| **5** | **VALIDATION** | Validar completude e consistência (gate EVL-like) | `FASE5_VALIDACAO.md` |
+
 Cada fase possui um agente IA especializado que atua com um papel distinto:
 
 - **Fase 1**: Analyst-PM (Analista de Requisitos + Gerente de Projeto)
 - **Fase 2**: Product Manager + Estrategista
 - **Fase 3**: Architect + Program Designer
 - **Fase 4**: Scrum Master + Operations Manager
-- **Fase 5**: Validador determinístico (EVL-like)
 
 ---
 
@@ -291,10 +285,6 @@ Cada fase possui um agente IA especializado que atua com um papel distinto:
 - Visão geral: [docs/BMAD_EDITAIS_OVERVIEW.md](./docs/BMAD_EDITAIS_OVERVIEW.md)
 - Guia de implementação: [IMPLEMENTATION_GUIDE.md](./IMPLEMENTATION_GUIDE.md)
 - Conversão PDF: [docs/CONVERSAO_PDF.md](./docs/CONVERSAO_PDF.md)
-
-### Validação EVL-like (Fase 5)
-- Guia: [docs/VALIDACAO_EVL_LIKE.md](./docs/VALIDACAO_EVL_LIKE.md)
-- Template de validação: [templates/TEMPLATE_VALIDACAO.md](./templates/TEMPLATE_VALIDACAO.md)
 
 ### Features Opcionais
 - **Documentação**: [docs/FEATURES_OPCIONAIS.md](./docs/FEATURES_OPCIONAIS.md)
@@ -307,5 +297,5 @@ Cada fase possui um agente IA especializado que atua com um papel distinto:
 ---
 
 **Desenvolvido por:** Usuário + Gemini AI  
-**Contexto:** BGb – BMAD Grants Brazil (Foco: Amigos da Vida)  
+**Contexto:** BGb – BMAD Grants Brazil (Foco: Organização)  
 **Data:** Dezembro 2025

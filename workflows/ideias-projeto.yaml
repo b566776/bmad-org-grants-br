@@ -5,6 +5,8 @@ description: Fase 2 - Planejamento e Estratégia (BMAD-Editais)
 
 1. Carregar Análise da Fase 1
    - Leia `FASE1_ANALISE.md` gerado na fase anterior
+   - Use as **palavras-chave valorizadas** mapeadas na Fase 1 para orientar a linguagem das ideias
+   - Verifique se não há **red flags** de inelegibilidade antes de propor ideias (se houver, proponha alternativas aderentes)
 
 2. Carregar Base de Conhecimento da Organização
    - Leia arquivos em `_bmad/modules/bmad-org-grants-br/memories/`

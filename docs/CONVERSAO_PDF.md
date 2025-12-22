@@ -318,7 +318,6 @@ memories/
 │   │       ├── FASE2_PLANEJAMENTO.md
 │   │       ├── FASE3_SOLUCAO.md
 │   │       ├── FASE4_IMPLEMENTACAO.md
-│   │       └── FASE5_VALIDACAO.md
 └── logs/
     └── conversao_pdfs_log.txt        # Log de conversões
 ```

@@ -7,7 +7,7 @@ Este workflow move os arquivos de trabalho atuais para a pasta de histórico, li
 
 ## Pré-requisitos
 - Projeto concluído e submetido
-- Todos os arquivos das 5 fases gerados
+- Todos os arquivos das 4 fases gerados
 
 ## Passos
 
@@ -25,7 +25,6 @@ Este workflow move os arquivos de trabalho atuais para a pasta de histórico, li
      * `FASE2_PLANEJAMENTO.md`
      * `FASE3_SOLUCAO.md`
      * `FASE4_IMPLEMENTACAO.md`
-     * `FASE5_VALIDACAO.md`
      * `TEMPLATE_PROJETO_EDITAL.md` (se preenchido)
      * Quaisquer outros documentos gerados
 
