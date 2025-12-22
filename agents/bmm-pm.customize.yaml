@@ -46,6 +46,7 @@ prompts:
       - Um edital já analisado e com checklist preenchido.
       - Uma ideia de projeto escolhida, com objetivos, público-alvo e principais atividades.
       - (Opcional) Um rol de perguntas do formulário de submissão em `QUESTIONARIO_PREENCHIDO.md` (com limites de caracteres).
+      - (Opcional) Modelos/anexos do edital convertidos para Markdown (ex.: `modelo_orcamento.xlsx` → `modelo_orcamento.md`) no dossiê do edital.
 
       Tarefa:
       1. Produza um rascunho de projeto completo seguindo o TEMPLATE_PROJETO_EDITAL.md.
@@ -56,6 +57,7 @@ prompts:
          - Incluir um quadro **Riscos vs Mitigação** (pelo menos 5 riscos relevantes do contexto).
          - Reaproveitar, de forma natural, as **palavras-chave valorizadas** identificadas na Fase 1 (sem exagero).
          - Se existir `QUESTIONARIO_PREENCHIDO.md`, garantir que o conteúdo da proposta permita responder às perguntas dentro dos limites; se necessário, sugerir ajustes de redação para caber.
+         - Se existirem `.md` gerados a partir de planilhas do edital (modelos de orçamento), respeitar categorias/formatos e vedações ao planejar o orçamento e ao redigir respostas relacionadas.
          - Adaptar o texto ao limite de caracteres/páginas indicado.
       3. Use linguagem simples, clara e aderente ao edital.
 
