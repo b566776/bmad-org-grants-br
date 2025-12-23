@@ -30,7 +30,7 @@ Compreender profundamente o edital e o contexto da organização proponente. A I
 **Processo:**
 
 1. Leitura automática do edital (conversão PDF → Markdown)
-2. Incorporação da base de conhecimento da Organização exclusivamente do diretório `_bmad/modules/bmad-org-grants-br/memories/` e seus subdiretórios
+2. Incorporação da base de conhecimento da Organização do diretório `_bmad/modules/bmad-org-grants-br/memories/` (portfólio, histórico)
 3. Extração de requisitos críticos: objeto, público-alvo, valores, prazos, critérios de pontuação
 4. Diagnóstico situacional: problemas, oportunidades, restrições
 5. Micro-checkpoint: **Filtro de inelegibilidade (red flags)** → detectar critérios que desclassificariam a Organização imediatamente
@@ -42,6 +42,7 @@ Compreender profundamente o edital e o contexto da organização proponente. A I
 - Quadro-resumo: Problema | Público | Oportunidades | Restrições | Pontos Fortes da ONG
 - Parecer **GO/NO-GO** de elegibilidade + evidências (red flags)
 - Lista de **palavras-chave valorizadas** e recomendações de linguagem para a Fase 3
+- **Lista de perguntas do formulário de submissão** (capturadas manualmente ou via browser)
 
 #### **FASE 2 — PLANNING (Planejamento/Ideação)**
 
@@ -51,7 +52,7 @@ Gerar ideias de projetos alinhadas ao edital. A IA atua como **Product Manager +
 
 **Processo:**
 
-1. Incorporação da base de conhecimento da Organização exclusivamente do diretório `_bmad/modules/bmad-org-grants-br/memories/` e seus subdiretórios
+1. Incorporação da base de conhecimento da Organização do diretório `_bmad/modules/bmad-org-grants-br/memories/` (portfólio, histórico)
 2. Brainstorming de 2-4 ideias de projetos
 3. Para cada ideia: objetivo geral, objetivos específicos, público, resultados esperados, ODS
 4. Análise comparativa de viabilidade (tabela de critérios)
@@ -64,19 +65,23 @@ Gerar ideias de projetos alinhadas ao edital. A IA atua como **Product Manager +
 
 ---
 
-#### **Checkpoint — Questionário de Submissão (pós-Fase 2)**
+#### **Checkpoint — Questionário de Submissão (Fase 2)**
 
-Muitos editais exigem submissão via formulário web com **perguntas específicas** e **limites de caracteres**. Este checkpoint captura esse rol e gera um artefato pronto para copiar/colar, mantendo rastreabilidade com as Fases 3 e 4.
+Muitos editais exigem submissão via formulário web com **perguntas específicas** e **limites de caracteres**. As perguntas foram capturadas na Fase 1. Agora, este checkpoint foca na **redação estratégica das respostas**.
 
 **Processo:**
-1. Coletar perguntas e limites (manual e/ou via URL do formulário)
-2. Consolidar deduplicando
-3. Redigir respostas dentro do limite (com versão curta quando necessário)
-4. (Opcional, sob comando explícito) navegar no formulário para extrair e/ou preencher, **sem nunca enviar**
+1. Mapear todos os conceitos do projeto (problema, território, público, metodologia, inovação, parceiros, impactos)
+2. Distribuir conceitos entre respostas **sem redundância**
+3. Redigir respostas completas em **texto corrido** (não bullet points)
+4. Otimizar caracteres: cada palavra conta
+5. Linguagem híbrida: **técnica** (dados, indicadores) + **ativista de direitos humanos** (dignidade, empoderamento)
+6. Revisão de coesão: respostas devem fluir como narrativa única
+7. (Opcional, sob comando explícito) preencher formulário via browser, **sem nunca enviar**
 
 **Entrega:** `QUESTIONARIO_PREENCHIDO.md`
-- Perguntas + limites + respostas prontas para copiar/colar
-- Pendências (limites desconhecidos, campos não localizados, dados faltantes)
+- Perguntas + limites + respostas completas e estratégicas
+- Mapeamento de conceitos cobertos em cada resposta
+- Lista de pendências (limites desconhecidos, dados faltantes)
 
 ---
 
@@ -88,7 +93,7 @@ Desenhar a proposta final escolhida. A IA atua como **Architect + Program Design
 
 **Processo:**
 
-1. Incorporação da base de conhecimento da Organização exclusivamente do diretório `_bmad/modules/bmad-org-grants-br/memories/` e seus subdiretórios
+1. Incorporação da base de conhecimento da Organização do diretório `_bmad/modules/bmad-org-grants-br/memories/` (portfólio, histórico)
 2. Título e resumo executivo
 3. Justificativa com diagnóstico fundamentado
 4. Objetivos (geral + 3-6 específicos mensuráveis)
@@ -114,7 +119,7 @@ Transformar a solução em plano operacional. A IA atua como **Scrum Master + Op
 
 **Processo:**
 
-1. Incorporação da base de conhecimento da Organização exclusivamente do diretório `_bmad/modules/bmad-org-grants-br/memories/` e seus subdiretórios
+1. Incorporação da base de conhecimento da Organização do diretório `_bmad/modules/bmad-org-grants-br/memories/` (portfólio, histórico)
 2. Plano de trabalho detalhado (atividades, responsáveis, cronograma)
 3. Estrutura orçamentária por blocos de despesa
 4. Checklist de documentos exigidos pelo edital

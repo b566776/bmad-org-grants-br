@@ -57,27 +57,29 @@ Isso instalará:
 
 ### Estrutura de Memórias Recomendada
 
-Organize a memória da organização em `memories/`:
+Organize a memória da organização em `memories/` (no repositório) e `.bmad-custom/memories/` (após instalação):
 
 ```
-memories/
-├── ORGANIZATION_PORTFOLIO.md          # Portfólio principal (Markdown)
-├── editais/                           # Editais em processamento
+_bmad/modules/bmad-org-grants-br/memories/  # Memórias estáticas do módulo
+├── ORGANIZATION_PORTFOLIO.md                # Portfólio principal (Markdown)
+└── logs/
+    └── conversao_pdfs_log.txt               # Log automático de conversões
+
+.bmad-custom/memories/                       # Conteúdo dinâmico do usuário
+├── editais/                                 # Editais em processamento
 │   └── [edital-nome]/
 │       ├── edital.pdf
-│       ├── edital.md                  # Gerado automaticamente
+│       ├── edital.md                        # Gerado automaticamente
 │       └── projeto/
 │           ├── FASE1_ANALISE.md
 │           ├── FASE2_PLANEJAMENTO.md
 │           ├── FASE3_SOLUCAO.md
-│           ├── FASE4_IMPLEMENTACAO.md
+│           └── FASE4_IMPLEMENTACAO.md
 │
-├── editais-anteriores/                # Histórico de projetos concluídos
-│   └── [edital-nome-anterior]/
-│       ├── edital.pdf
-│       └── projeto/
-└── logs/
-    └── conversao_pdfs_log.txt         # Log automático de conversões
+└── editais-anteriores/                      # Histórico de projetos concluídos
+    └── [edital-nome-anterior]/
+        ├── edital.pdf
+        └── projeto/
 ```
 
 ## Próximos Passos de Implementação
@@ -126,7 +128,7 @@ npx bmad-method@alpha install
 ### Dia a dia:
 
 1. **Novo Edital**:
-   - Crie/adicione `memories/editais/<nome-edital>.md`
+   - Crie/adicione `.bmad-custom/memories/editais/<nome-edital>.md`
    - Carregue o PDF e extraia os pontos-chave
 
 2. **Análise**:

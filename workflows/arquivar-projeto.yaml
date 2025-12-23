@@ -16,8 +16,8 @@ Este workflow move os arquivos de trabalho atuais para a pasta de histórico, li
    - Formato sugerido: `EDITAL-ORGAO-ANO` (ex: `CENTELHA3-FAPDF-2025`)
 
 2. **Criar Estrutura de Arquivo**
-   - Crie: `_bmad/modules/bmad-org-grants-br/memories/editais-anteriores/[Nome_do_Edital]/`
-   - Crie: `_bmad/modules/bmad-org-grants-br/memories/editais-anteriores/[Nome_do_Edital]/projeto/`
+   - Crie: `.bmad-custom/memories/editais-anteriores/[Nome_do_Edital]/`
+   - Crie: `.bmad-custom/memories/editais-anteriores/[Nome_do_Edital]/projeto/`
 
 3. **Mover Arquivos da Proposta**
    - Mova para `projeto/`:

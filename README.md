@@ -173,21 +173,22 @@ python converter_pdfs_batch.py "memories" --recursive
 ### Para um novo edital:
 
 1. **Criar arquivo do edital**: `memories/editais/[edital-nome].md` com resumo extraído do PDF
-2. **Fase 1 - Análise**: Usar comando `INICIAR` no agente → gera `FASE1_ANALISE.md`
-3. **Fase 2 - Planejamento**: Usar `IR PARA FASE 2` → gera `FASE2_PLANEJAMENTO.md` com ideias de projetos
-4. **Checkpoint - Questionário de Submissão**: Usar `QUESTIONARIO SUBMISSAO` → gera/atualiza `QUESTIONARIO_PREENCHIDO.md` (perguntas + limites + respostas prontas para copiar/colar)
-5. **Fase 3 - Solução**: Usar `IR PARA FASE 3` → preenche `TEMPLATE_PROJETO_EDITAL.md` e gera `FASE3_SOLUCAO.md` (mantendo `QUESTIONARIO_PREENCHIDO.md` consistente com os limites)
-6. **Fase 4 - Implementação**: Usar `IR PARA FASE 4` → gera `FASE4_IMPLEMENTACAO.md` com plano de trabalho, orçamento e checklist (mantendo `QUESTIONARIO_PREENCHIDO.md` consistente com os limites)
+2. **Fase 1 - Análise**: Usar comando `INICIAR` no agente → gera `FASE1_ANALISE.md` + **captura perguntas do formulário** (manual ou via `EXTRAIR QUESTIONARIO`)
+3. **Fase 2 - Planejamento**: Usar `IR PARA FASE 2` → gera `FASE2_PLANEJAMENTO.md` com ideias de projetos + **inicia redação estratégica do `QUESTIONARIO_PREENCHIDO.md`** (respostas completas, coesas, sem redundância)
+4. **Fase 3 - Solução**: Usar `IR PARA FASE 3` → preenche `TEMPLATE_PROJETO_EDITAL.md` e gera `FASE3_SOLUCAO.md` (mantendo `QUESTIONARIO_PREENCHIDO.md` em sincronia)
+5. **Fase 4 - Implementação**: Usar `IR PARA FASE 4` → gera `FASE4_IMPLEMENTACAO.md` com plano de trabalho, orçamento e checklist (finaliza `QUESTIONARIO_PREENCHIDO.md`)
+6. **(Opcional) Preencher Formulário via Browser**: Usar `PREENCHER FORMULARIO` → cola respostas no formulário web (sem enviar)
 
 ### Comandos de Navegação
 
 O usuário controla o fluxo através de comandos explícitos:
 
-- `INICIAR` → Inicia Fase 1
-- `IR PARA FASE 2` → Avança para Fase 2
-- `QUESTIONARIO SUBMISSAO` → Inicia checkpoint de questionário (pós-Fase 2)
-- `IR PARA FASE 3` → Avança para Fase 3
-- `IR PARA FASE 4` → Avança para Fase 4
+- `INICIAR` → Inicia Fase 1 (inclui análise do edital)
+- `EXTRAIR QUESTIONARIO` → Captura perguntas do formulário via browser (Fase 1)
+- `IR PARA FASE 2` → Avança para Fase 2 (gera ideias + inicia redação de respostas)
+- `IR PARA FASE 3` → Avança para Fase 3 (desenho técnico completo)
+- `IR PARA FASE 4` → Avança para Fase 4 (operacionalização + orçamento)
+- `PREENCHER FORMULARIO` → Preenche formulário web via browser (sem enviar)
 - `REFAZER FASE X` → Refaz uma fase específica
 
 ---

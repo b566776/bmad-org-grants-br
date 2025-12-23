@@ -14,6 +14,9 @@ inputs:
   arquivo_memoria_edital:
     description: "Arquivo de memória do edital em .bmad-custom/memories/editais/<nome>.md."
     required: true
+  url_formulario_opcional:
+    description: "URL do formulário de submissão online (opcional, para extração de perguntas)."
+    required: false
 
 tasks:
   - id: carregar-contexto
@@ -50,6 +53,15 @@ tasks:
       resumo: "{{ tasks.gerar-resumo.output }}"
       checklist: "{{ tasks.gerar-checklist.output }}"
 
+  - id: capturar-questionario-submissao
+    description: >
+      Capturar perguntas do formulário de submissão (manual ou via browser com comando EXTRAIR QUESTIONARIO).
+      Identificar cada pergunta, limite de caracteres, tipo de resposta esperada.
+      Esta captura antecipada permite planejar estrategicamente as respostas nas Fases 2-4.
+    input:
+      edital: "{{ tasks.carregar-contexto.output }}"
+      url_formulario: "{{ inputs.url_formulario_opcional }}"
+
 outputs:
   resumo_tecnico:
     description: "Resumo técnico estruturado do edital."
@@ -63,4 +75,8 @@ outputs:
     description: >
       Palavras/expressões com alta ênfase no edital (ex.: inovação, escala, sustentabilidade, equidade),
       com recomendação de uso na Fase 3 (frases-modelo e pontos onde inserir).
+  questionario_formulario:
+    description: >
+      Lista de perguntas do formulário de submissão com limites de caracteres identificados.
+      Permite planejamento estratégico das respostas desde a Fase 2.
 

@@ -1,107 +1,162 @@
 ---
-description: Checkpoint pós-Fase 2 — Questionário de Submissão (BMAD-Editais)
+description: Checkpoint pós-Fase 2 — Redação Estratégica do Questionário (BMAD-Editais)
 ---
-# Workflow: Questionário de Submissão (pós-Fase 2)
+# Workflow: Questionário de Submissão (Fase 2)
 
-Este workflow existe porque muitos editais exigem **submissão via formulário web** com **perguntas específicas** e **limites de caracteres**, que representam uma “compressão” do conteúdo completo das Fases 3 e 4.
+**IMPORTANTE**: As perguntas do formulário já foram capturadas na **Fase 1** (análise do edital). Este workflow agora foca na **redação estratégica das respostas**.
 
 ## Objetivo
 
-- Coletar o **rol de perguntas** do formulário e seus **limites de caracteres** (quando existirem).
-- Gerar um arquivo único **pronto para copiar/colar** no formulário:
-  - `QUESTIONARIO_PREENCHIDO.md`
-- Opcionalmente, **sob comando explícito**, navegar no browser para:
-  - extrair perguntas/limites (inclusive em formulários multi-página)
-  - preencher o formulário colando as respostas
+Produzir respostas **completas, coesas e estratégicas** para o formulário de submissão, considerando:
+- Limite de caracteres como restrição crítica
+- Completude de cada resposta (não apenas resumos)
+- Eliminação de redundâncias entre respostas
+- Contextualização no todo do projeto
+- Linguagem técnica + ativista de direitos humanos
 
-## Entradas (o usuário fornece)
+## Entradas (disponíveis da Fase 1)
 
-Escolha um ou combine:
-
-1. **URL do formulário** (se houver):
-   - `URL_FORMULARIO = <cole aqui>`
-
-2. **Perguntas coladas manualmente** (recomendado como fallback):
-   - cole o texto (pode ser exportado do edital, print transcrito, ou copiado do próprio formulário)
-   - inclua limites quando existirem (ex.: “máx. 2.000 caracteres”)
+1. **Perguntas capturadas**: lista de perguntas + limites (de `FASE1_ANALISE.md`)
+2. **Contexto do edital**: requisitos, palavras-chave valorizadas
+3. **Ideias de projeto** (Fase 2): objetivos, público, atividades planejadas
 
 ## Saída (entregável)
 
-Crie/atualize o arquivo:
-- `QUESTIONARIO_PREENCHIDO.md`
+Arquivo: `QUESTIONARIO_PREENCHIDO.md`
 
 Formato obrigatório (para cada pergunta):
 
-- **Q{N}. <texto da pergunta>**
-  - **Limite**: `<N caracteres>` (ou `desconhecido`)
-  - **Resposta (dentro do limite)**:
-    - (texto)
-  - **Resposta curta (se necessário)**:
-    - (texto)
+```markdown
+## Q{N}. <texto da pergunta>
+**Limite**: {X} caracteres  
+**Tipo**: <objetivo/justificativa/metodologia/impacto/orçamento/etc>
 
-Inclua ao final uma seção:
-- **Pendências** (perguntas sem limite confirmado, campos não localizados, etc.)
+### Resposta Final ({Y} caracteres)
+<texto corrido, sintético, completo>
 
-## Passos
+### Versão Curta (se necessário, {Z} caracteres)
+<versão condensada mantendo essência>
 
-### 1) Consolidar o rol de perguntas
+### Conceitos cobertos
+- <listar conceitos-chave mencionados nesta resposta>
 
-- Se existirem anexos/modelos do edital em `memories/editais/<edital-nome>/` (ex.: planilhas `.xlsx`),
-  considere também os `.md` gerados ao lado dessas planilhas (ex.: `modelo_orcamento.xlsx` → `modelo_orcamento.md`)
-  para responder perguntas de orçamento/categorias e evitar inconsistências.
+---
+```
 
-- Se houver perguntas coladas manualmente:
-  - normalize (remover duplicatas, manter textos fiéis)
-  - extraia limites quando estiverem no texto
+## Diretrizes de Redação Estratégica
 
-- Se houver URL e você estiver autorizado a usar browser:
-  - rode o comando: `EXTRAIR QUESTIONARIO`
-  - consolide com o material manual (dedupe)
+### 1. **Completude, não Resumo**
+- ❌ Não: "Conforme descrito na proposta, faremos X, Y e Z"
+- ✅ Sim: Resposta autossuficiente geralmente seguindo orientação no proprio texto da pergunta
 
-### 2) Produzir respostas dentro do limite
+### 2. **Gestão de Redundância**
+- Mapear todos os conceitos do projeto (ex.: território, público, metodologia, inovação)
+- Distribuir conceitos entre respostas sem repetição
+- Se conceito X foi mencionado em Q1, não repetir em Q2 (usar referência implícita no contexto geral)
 
-Para cada pergunta, escreva:
-- uma resposta principal **que caiba no limite**
-- uma versão curta para limites baixos
+### 3. **Contexto do Todo**
+- Cada resposta deve se encaixar logicamente no conjunto
+- Ordem das respostas importa: construir narrativa coesa
+- Conceitos introduzidos devem fluir naturalmente para próximas respostas
 
-Regras:
-- use conteúdo das Fases 1 e 2 (edital, requisitos, escolhas)
-- mantenha coerência com o que será escrito na Fase 3 e 4
-- não invente dados: quando faltar dado, marque como `[PENDENTE: ...]` e proponha o que pedir ao usuário
+### 4. **Estilo de Redação**
+- **Texto corrido** (sem bullet points)
+- **Sintético**: cada palavra conta (limite de caracteres)
+- **Compreensível**: banca avaliadora deve entender sem consultar outros materiais
+- **Linguagem híbrida**:
+  - Técnica: dados, indicadores, metodologias, evidências
+  - o tom será dado conforme o portifólio da organização e o contexto do edital 
+    - pode ser de um: Ativista de direitos humanos: dignidade, equidade, empoderamento, transformação social; ou de um CEO de uma startup: inovação, sustentabilidade, impacto social, resultados mensuráveis.
 
-### 3) (Opcional) Preencher o formulário no browser
+### 5. **Otimização de Caracteres**
+- Eliminar:
+  - Redundâncias ("novamente", "como mencionado")
+  - Expressões vazias ("é importante destacar que")
+  - Adjetivos desnecessários
+- Priorizar:
+  - Verbos de ação
+  - Dados concretos
+  - Impactos mensuráveis
 
-Somente sob comando explícito do usuário:
-- `PREENCHER FORMULARIO`
+## Passos do Workflow
 
-## Automação via browser (sob demanda): regras de segurança e navegação
+### 1) Mapear conceitos do projeto
 
-### Extração (EXTRAIR QUESTIONARIO)
+Listar TODOS os elementos do projeto:
+- Problema/diagnóstico
+- Território/contexto
+- Público-alvo
+- Metodologia/atividades
+- Inovação/diferenciais
+- Parceiros/articulações
+- Impactos esperados
+- Sustentabilidade
+- Alinhamento com edital
 
-Objetivo: capturar labels/perguntas e limites (ex.: “máx. X caracteres”, contador, `maxlength`), inclusive em múltiplas páginas.
+### 2) Analisar as perguntas e distribuir conceitos
 
-- É permitido clicar em: **Próxima / Continuar / Avançar** para navegar páginas.
-- Se a navegação estiver bloqueada por campos obrigatórios, é permitido preencher temporariamente com:
-  - `lorem ipsum ...` (respeitando `maxlength` quando existir)
-  - apenas para habilitar a navegação e continuar extraindo perguntas
-- O agente deve tentar identificar limites por:
-  - textos “máx./máximo/limite/characters”
-  - atributos do campo (quando disponível)
+Para cada pergunta do formulário:
+- Identificar tipo (justificativa, metodologia, impacto, etc.)
+- Alocar conceitos relevantes SEM repetir entre perguntas
+- Definir narrativa: qual informação vem antes/depois
+
+### 3) Redigir respostas em ordem estratégica
+
+**Ordem sugerida de redação**:
+1. Perguntas de contexto/problema (introduz território, público)
+2. Perguntas de objetivos (introduz metas, ODS)
+3. Perguntas de metodologia (detalha estratégias, sem repetir público)
+4. Perguntas de impacto (usa conceitos já estabelecidos)
+5. Perguntas de orçamento/gestão (foca em execução)
+
+**Para cada resposta**:
+- Escrever texto corrido completo
+- Contar caracteres
+- Se ultrapassar limite: comprimir sem perder essência
+- Se faltar muito: verificar se conceitos de outras perguntas podem migrar
+- Documentar conceitos cobertos
+
+### 4) Revisão de coesão
+
+Ler todas as respostas em sequência como se fossem um texto único:
+- ✅ Narrativa fluída?
+- ✅ Sem redundâncias?
+- ✅ Conceitos complementares (não repetidos)?
+- ✅ Linguagem consistente (técnica + ativista)?
+- ✅ Compreensível sem consultar proposta completa?
+
+### 5) (Opcional) Preenchimento via browser
+
+Somente sob comando explícito: `PREENCHER FORMULARIO`
+
+## Automação via Browser (regras de segurança)
 
 ### Preenchimento (PREENCHER FORMULARIO)
 
-- Para cada pergunta/campo, localizar o melhor match e colar a resposta correspondente do `QUESTIONARIO_PREENCHIDO.md`.
-- Antes de colar a resposta definitiva:
-  - limpar/substituir quaisquer valores “dummy” (ex.: `lorem ipsum ...`) que tenham ficado.
-- Se não houver match confiável, marcar como pendente e **não preencher** esse campo automaticamente.
+- Para cada pergunta/campo, localizar o melhor match e colar a resposta correspondente de `QUESTIONARIO_PREENCHIDO.md`
+- Limpar quaisquer valores "dummy" (ex.: `lorem ipsum`) que tenham ficado da extração na Fase 1
+- Se não houver match confiável, marcar como pendente e **não preencher** automaticamente
 
 ### Regra absoluta: NUNCA ENVIAR
 
 - **NUNCA** clicar em botões/ações do tipo:
   - `Enviar`, `Submit`, `Finalizar`, `Concluir`, `Confirmar envio`, `Submit application`
-- Se a página aparentar ser a etapa final ou a única ação remanescente for “enviar”, **pare** e peça ação manual do usuário.
+- Se a página aparentar ser a etapa final ou a única ação remanescente for "enviar", **pare** e peça ação manual do usuário.
 
----
+## Exemplos de Linguagem Híbrida (Técnica + Ativista)
 
-**Observação:** As Fases 3 e 4 devem manter este arquivo atualizado, garantindo que o texto final da proposta tenha um “recorte” fiel e compatível com os limites do formulário.
+### ❌ Só Técnica (fria)
+"O projeto atenderá 120 beneficiários em 12 meses através de 8 oficinas, resultando em aumento de 30% na taxa de inserção laboral."
 
+### ❌ Só Ativista (vaga)
+"Vamos empoderar a comunidade para que as pessoas conquistem sua dignidade e transformem suas realidades."
+
+### ✅ Híbrida (ideal)
+"O projeto promoverá o empoderamento de 120 jovens em situação de vulnerabilidade social através de 8 oficinas de formação profissional, fortalecendo sua autonomia e dignidade. A metodologia participativa resultará em 30% de aumento na inserção laboral, transformando trajetórias individuais e o tecido social do território."
+
+## Observações Finais
+
+- As Fases 3 e 4 devem **manter este arquivo atualizado**
+- Respostas devem evoluir conforme a proposta técnica se desenvolve
+- Garantir sempre: coesão + completude + otimização de caracteres
+- A submissão final é **sempre manual** pelo usuário

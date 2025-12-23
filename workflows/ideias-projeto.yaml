@@ -9,9 +9,9 @@ description: Fase 2 - Planejamento e Estratégia (BMAD-Editais)
    - Verifique se não há **red flags** de inelegibilidade antes de propor ideias (se houver, proponha alternativas aderentes)
 
 2. Carregar Base de Conhecimento da Organização
-   - Leia arquivos em `_bmad/modules/bmad-org-grants-br/memories/` (e seus subdiretórios)
+   - Leia arquivos em `_bmad/modules/bmad-org-grants-br/memories/` para contexto da organização (portfólio, histórico)
    - Incorpore portfólio, capacidades e histórico organizacional
-   - Se houver anexos/modelos do edital em `memories/editais/<edital-nome>/` (ex.: planilhas `.xlsx`),
+   - Se houver anexos/modelos do edital em `.bmad-custom/memories/editais/<edital-nome>/` (ex.: planilhas `.xlsx`),
      considere também os `.md` gerados ao lado dessas planilhas (ex.: `modelo_orcamento.xlsx` → `modelo_orcamento.md`)
      para entender categorias, regras e formatos exigidos.
 
