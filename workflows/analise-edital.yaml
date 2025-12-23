@@ -19,11 +19,71 @@ inputs:
     required: false
 
 tasks:
+  - id: validar-estrutura
+    description: >
+      Validar e preparar estrutura de memórias antes de processar edital.
+      
+      0. DETECTAR PERFIL ATIVO (Multi-Organizações):
+         - Verificar se existe organizations/.current
+         - Se SIM:
+           a) Ler perfil ativo de .current
+           b) Usar organizations/{perfil-ativo}/ como base
+           c) Avisar: "🏢 Organização ativa: {nome} ({perfil})"
+         - Se NÃO:
+           a) Usar memories/ (compatibilidade legado)
+           b) Avisar: "⚠️  Usando estrutura legado. Considere migrar para multi-org."
+      
+      1. VALIDAR DIRETÓRIOS (criar se ausentes no perfil ativo):
+         - {perfil}/certidoes/
+         - {perfil}/documentos_bancarios/
+         - {perfil}/documentos_institucionais/
+         - {perfil}/projetos_anteriores/
+         - {perfil}/logs/
+      
+      2. VALIDAR ARQUIVOS OBRIGATÓRIOS:
+         - {perfil}/HISTORICO_EDITAIS.md (criar template se ausente)
+      
+      3. ANÁLISE INTELIGENTE DE ORGANIZATION_PORTFOLIO.md:
+         - Se AUSENTE ou VAZIO:
+           a) Escanear TODO o conteúdo de {perfil}/ (todas as subpastas)
+           b) Ler arquivos .md existentes (projetos anteriores, etc.)
+           c) Extrair metadados de PDFs (CNPJs, certidões, etc.) se possível
+           d) GERAR automaticamente {perfil}/ORGANIZATION_PORTFOLIO.md consolidando:
+              * Dados institucionais encontrados
+              * Histórico de projetos anteriores
+              * Capacidades identificadas
+              * Certificações encontradas
+           e) Avisar usuário que portfolio foi gerado automaticamente
+         
+         - Se EXISTENTE e PREENCHIDO:
+           a) Validar se está atualizado (comparar com conteúdo de {perfil}/)
+           b) Sugerir atualização se arquivos são mais recentes
+      
+      4. CARREGAR METADADOS DA ORGANIZAÇÃO:
+         - Ler {perfil}/config.json se existir
+         - Extrair: nome, tipo, CNPJ, áreas de atuação
+         - Disponibilizar para uso nas fases seguintes
+      
+      5. RESULTADO:
+         - Relatório de validação (arquivos criados, avisos, etc.)
+         - Confirmação de que estrutura está pronta
+         - Lista de informações encontradas/faltantes
+         - Metadados da organização ativa
+    
+    output:
+      estrutura_valida: boolean
+      portfolio_gerado: boolean
+      avisos: list
+      perfil_ativo: string  # Nome do perfil (ex: "default", "ong-xyz")
+      organizacao: dict     # Dados do config.json
+      resumo_organizacao: dict  # Informações consolidadas para uso nas fases
+
   - id: carregar-contexto
     description: "Carregar conteúdo do edital e memória associada."
     input:
       pdf: "{{ inputs.arquivo_pdf_edital }}"
       memoria: "{{ inputs.arquivo_memoria_edital }}"
+      dados_organizacao: "{{ tasks.validar-estrutura.output.resumo_organizacao }}"
 
   - id: gerar-resumo
     description: "Gerar resumo técnico do edital."

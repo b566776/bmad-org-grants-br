@@ -223,6 +223,73 @@ python approval_predictor.py memories/editais/edital-xyz/projeto/
 
 ---
 
+## 🏢 Suporte Multi-Organizações (Multi-Tenant)
+
+**Novidade:** O módulo agora suporta **múltiplas organizações** em uma única instalação!
+
+### Casos de Uso
+
+- **Consultores:** Atender múltiplos clientes sem reinstalar
+- **ONGs compartilhadas:** Diferentes setores da mesma org
+- **Portabilidade:** Backup/restore por organização
+
+### Gerenciamento de Perfis
+
+```bash
+# Listar todas as organizações
+python scripts/list-organizations.py
+
+# Trocar organização ativa
+python scripts/switch-organization.py nome-da-organizacao
+
+# Criar nova organização
+python scripts/create-organization.py --name "Nova ONG" --type ngo
+
+# Tutorial completo em: memories/organizations/README.md
+```
+
+### Estrutura
+
+```
+memories/organizations/
+├── .current                      # Perfil ativo
+├── default/                      # Perfil padrão
+│   ├── config.json               # Metadados da org
+│   ├── ORGANIZATION_PORTFOLIO.md
+│   └── ...
+└── outra-organizacao/            # Outro perfil
+    └── ...
+```
+
+**Isolamento total:** Cada organização tem seus próprios documentos, editais e histórico.
+
+---
+
+## 📂 Como Funciona a Memória Organizacional
+
+O módulo usa uma arquitetura **híbrida de duas camadas**:
+
+### 1. **Fonte Primária** (Subpastas em `memories/`)
+Documentos originais organizados por categoria:
+- `certidoes/` - Certidões e registros oficiais
+- `documentos_bancarios/` - Dados bancários
+- `documentos_institucionais/` - Estatuto, atas, balanços
+- `projetos_anteriores/` - Histórico detalhado de projetos
+
+### 2. **Sumário Executivo** (`ORGANIZATION_PORTFOLIO.md`)
+Arquivo **gerado automaticamente** que consolida informações das subpastas:
+- Criado na primeira execução da Fase 1
+- Atualizado quando conteúdo de `memories/` muda
+- Otimizado para uso eficiente pelos workflows (contexto LLM)
+
+**Vantagens desta Arquitetura:**
+- ✅ Performance: Processar 1 arquivo consolidado vs. 50+ arquivos/fase
+- ✅ Contexto: Informações estruturadas e priorizadas para redação
+- ✅ Manutenção: Adicione arquivos em subpastas → portfolio se atualiza
+- ✅ Flexibilidade: Organize documentos como preferir
+
+---
+
 ## 📁 Estrutura do Repositório
 
 ```
@@ -238,15 +305,20 @@ bmad-org-grants-br/
 ├── agents/
 │   └── bmm-pm.customize.yaml          # Agente PM
 ├── memories/
-│   ├── ORGANIZATION_PORTFOLIO.md      # Portfólio da organização
+│   ├── ORGANIZATION_PORTFOLIO.md      # Sumário executivo (auto-gerado)
+│   ├── HISTORICO_EDITAIS.md           # Rastreamento de editais
 │   ├── links_uteis.json               # Links categorizados
-│   ├── editais/                       # Editais processados
+│   ├── certidoes/                     # Certidões e registros
+│   ├── documentos_bancarios/          # Dados bancários
+│   ├── documentos_institucionais/     # Estatuto, atas, balanços
+│   ├── projetos_anteriores/           # Histórico de projetos  
 │   └── logs/                          # Logs de conversão
 ├── templates/
 │   ├── TEMPLATE_PROJETO_EDITAL.md     # Template de proposta
 ├── workflows/
 │   ├── analise-edital.yaml            # FASE 1
 │   ├── ideias-projeto.yaml            # FASE 2
+│   ├── desenho-projeto.yaml           # FASE 3
 │   ├── questionario-submissao.yaml    # Checkpoint pós-FASE 2
 │   ├── implementacao-projeto.yaml     # FASE 4
 │   ├── arquivar-projeto.yaml          # Arquivamento

@@ -14,7 +14,7 @@ persona:
 
 memories:
   - "A Organização atua em saúde, assistência social e direitos humanos."
-  - "Portfólio detalhado está em {project-root}/_bmad/modules/bmad-org-grants-br/memories/ONG_PORTFOLIO.md."
+  - "Portfólio detalhado está em {project-root}/_bmad/modules/bmad-org-grants-br/memories/ORGANIZATION_PORTFOLIO.md."
   - "Cada edital processado gera um arquivo em .bmad-custom/memories/editais/<edital>.md, usado pelos workflows."
 
 menu:
@@ -24,6 +24,9 @@ menu:
   - trigger: ideias-projeto
     workflow: "{project-root}/_bmad/modules/bmad-org-grants-br/workflows/ideias-projeto.yaml"
     description: "Gerar ideias de projeto alinhadas ao edital."
+  - trigger: desenho-projeto
+    workflow: "{project-root}/_bmad/modules/bmad-org-grants-br/workflows/desenho-projeto.yaml"
+    description: "Desenhar proposta técnica completa (Fase 3)."
   - trigger: questionario-submissao
     workflow: "{project-root}/_bmad/modules/bmad-org-grants-br/workflows/questionario-submissao.yaml"
     description: "Extrair/organizar perguntas do formulário e gerar QUESTIONARIO_PREENCHIDO.md (copiar/colar)."

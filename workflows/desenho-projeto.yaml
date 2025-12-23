@@ -1,0 +1,98 @@
+---
+description: Fase 3 - Solução e Desenho Técnico (BMAD-Editais)
+---
+# Workflow Fase 3: Solução (Desenho Técnico)
+
+## Nota Importante
+Este workflow integra-se com o prompt `#projeto-completo-prompt` do agente BMAD PM.
+Evita duplicação delegando a lógica principal ao agente, mantendo apenas a orquestração.
+
+---
+
+1. Validar Pré-requisitos
+   - Confirme que `FASE1_ANALISE.md` existe e está completo
+   - Confirme que `FASE2_PLANEJAMENTO.md` existe com ideia priorizada definida
+   - Confirme que o usuário escolheu explicitamente qual ideia desenvolver
+
+2. Carregar Base de Conhecimento e Contexto
+   - Leia `FASE1_ANALISE.md`:
+     * Requisitos do edital
+     * Palavras-chave valorizadas (para incorporar na redação)
+     * Red flags de elegibilidade
+     * Perguntas do questionário (se capturadas)
+   - Leia `FASE2_PLANEJAMENTO.md`:
+     * Ideia de projeto priorizada pelo usuário
+     * Objetivos preliminares
+     * Público-alvo definido
+   - Leia `_bmad/modules/bmad-org-grants-br/memories/ORGANIZATION_PORTFOLIO.md`:
+     * Capacidades organizacionais
+     * Histórico de projetos
+     * Equipe e infraestrutura
+   - Se existir `QUESTIONARIO_PREENCHIDO.md`, leia para garantir consistência
+   - Se existirem anexos/modelos do edital em `.bmad-custom/memories/editais/<edital-nome>/` (ex.: planilhas convertidas como `modelo_orcamento.md`), leia para entender formatos exigidos
+
+3. Executar Prompt #projeto-completo-prompt
+   - **Delegação ao Agente:** Invoque o prompt `#projeto-completo-prompt` definido em `agents/bmm-pm.customize.yaml`
+   - Este prompt já contém toda a lógica para:
+     * Preencher `TEMPLATE_PROJETO_EDITAL.md`
+     * Incluir Teoria da Mudança
+     * Incluir análise de Riscos vs Mitigação
+     * Incorporar palavras-chave valorizadas da Fase 1
+     * Garantir consistência com questionário (se existir)
+     * Respeitar formatos de modelos/anexos do edital
+
+4. Gerar Documento FASE3_SOLUCAO.md
+   - Crie o arquivo `FASE3_SOLUCAO.md` contendo:
+     * Resumo executivo da proposta técnica
+     * Link para `TEMPLATE_PROJETO_EDITAL.md` preenchido
+     * Seções principais documentadas:
+       - Problema e justificativa
+       - Objetivos (geral + específicos SMART)
+       - Público-alvo detalhado
+       - Metodologia e estratégia
+       - Teoria da Mudança (Atividade → Produto → Resultado → Impacto)
+       - Indicadores e metas
+       - Matriz de Riscos e Mitigações
+       - Alinhamento com ODS e edital
+     * Checklist de validação:
+       - [ ] Todos os requisitos do edital atendidos?
+       - [ ] Palavras-chave valorizadas incorporadas naturalmente?
+       - [ ] Teoria da Mudança coerente e rastreável?
+       - [ ] Riscos identificados são realistas e relevantes?
+       - [ ] Indicadores são mensuráveis e viáveis?
+       - [ ] Proposta cabe nos limites do edital (páginas/caracteres)?
+
+5. Atualizar QUESTIONARIO_PREENCHIDO.md (se existir)
+   - Se o questionário foi criado na Fase 2, atualize respostas para refletir a proposta técnica detalhada
+   - Garanta que conceitos da Fase 3 sejam distribuídos sem redundância
+   - Verifique limites de caracteres
+
+6. Micro-checkpoint: Consistência Interna
+   - Verifique se:
+     * Problema → Objetivos (os objetivos resolvem o problema?)
+     * Objetivos → Metodologia (a metodologia alcança os objetivos?)
+     * Metodologia → Teoria da Mudança (as atividades geram os produtos esperados?)
+     * Indicadores → Objetivos (cada objetivo tem pelo menos 1 indicador?)
+   - Se encontrar inconsistências, liste e sugira correções
+
+7. Gerar Entregável e Próximos Passos
+   - Confirme criação de:
+     * `FASE3_SOLUCAO.md` (resumo + checklist)
+     * `TEMPLATE_PROJETO_EDITAL.md` (versão preenchida)
+     * `QUESTIONARIO_PREENCHIDO.md` (atualizado, se aplicável)
+   - Informe ao usuário:
+     * "✅ Fase 3 concluída. Proposta técnica completa gerada."
+     * "📋 Revise o `TEMPLATE_PROJETO_EDITAL.md` antes de avançar."
+     * "⏭️  Quando estiver pronto, use comando `IR PARA FASE 4` para operacionalização e orçamento."
+
+**Importante:** Não avance para Fase 4 automaticamente. Aguarde comando explícito do usuário.
+
+---
+
+## Integração com Agente
+
+Este workflow é **enxuto e modular** porque delega a lógica de redação ao prompt `#projeto-completo-prompt` já existente no agente. Isso evita:
+- ❌ Duplicação de instruções de redação
+- ❌ Inconsistência entre workflow e agente
+- ✅ Manutenção centralizada (mudanças no prompt afetam ambos)
+- ✅ Reutilização inteligente de componentes existentes

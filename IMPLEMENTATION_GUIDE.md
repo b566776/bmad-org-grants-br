@@ -61,7 +61,30 @@ Organize a memória da organização em `memories/` (no repositório) e `.bmad-c
 
 ```
 _bmad/modules/bmad-org-grants-br/memories/  # Memórias estáticas do módulo
-├── ORGANIZATION_PORTFOLIO.md                # Portfólio principal (Markdown)
+├── ORGANIZATION_PORTFOLIO.md                # Sumário executivo (gerado automaticamente)
+├── HISTORICO_EDITAIS.md                     # Rastreamento de editais
+├── links_uteis.json                         # Links categorizados
+├── certidoes/                               # Certidões da organização
+│   ├── cnpj.pdf
+│   ├── certidao_federal.pdf
+│   ├── certidao_estadual.pdf
+│   ├── certidao_municipal.pdf
+│   ├── certidao_fgts.pdf
+│   └── utilidade_publica.pdf
+├── documentos_bancarios/
+│   ├── dados_bancarios.md
+│   └── comprovante_conta.pdf
+├── documentos_institucionais/
+│   ├── estatuto.pdf
+│   ├── ata_eleicao_diretoria.pdf
+│   ├── balanco_patrimonial.pdf
+│   └── relatorio_atividades.pdf
+├── projetos_anteriores/                     # Histórico detalhado de projetos
+│   ├── projeto_2023_saude.md
+│   ├── projeto_2022_educacao.md
+│   └── relatorios/
+│       ├── relatorio_final_2023.pdf
+│       └── certificado_conclusao_2023.pdf
 └── logs/
     └── conversao_pdfs_log.txt               # Log automático de conversões
 
@@ -82,6 +105,12 @@ _bmad/modules/bmad-org-grants-br/memories/  # Memórias estáticas do módulo
         └── projeto/
 ```
 
+**Observação Importante:**
+- `ORGANIZATION_PORTFOLIO.md` é **gerado automaticamente** pela análise do conteúdo de todas as subpastas
+- Funciona como **sumário executivo consolidado** das informações da organização
+- Atualizado automaticamente quando necessário (Fase 1 do workflow)
+- As subpastas (`certidoes/`, `documentos_*/`, `projetos_anteriores/`) são a **fonte primária** de dados
+
 ## Próximos Passos de Implementação
 
 ### 1. Criar Agente Customizado (agents/bgb-pm.customize.yaml)
@@ -99,7 +128,7 @@ O agente PM será configurado como especialista em editais:
 
 ### 3. Criar Memórias (memories/)
 
-- **ONG_PORTFOLIO.md**: Histórico, açoes, resultados, dados da Organização
+- **ORGANIZATION_PORTFOLIO.md**: Histórico, açoes, resultados, dados da Organização
 - **exemplos-editais/**: Editais já processados para referência
 
 ### 4. Criar Template (templates/)

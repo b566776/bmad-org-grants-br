@@ -1,0 +1,17 @@
+{
+    "organization_name": "Organização Padrão",
+    "organization_type": "ngo",
+    "cnpj": "",
+    "created_at": "2025-12-23T14:23:37-03:00",
+    "last_updated": "2025-12-23T14:23:37-03:00",
+    "description": "Perfil padrão criado na migração para arquitetura multi-organizações",
+    "tags": [],
+    "areas_atuacao": [
+        "saúde",
+        "assistência social",
+        "direitos humanos"
+    ],
+    "color": "#1976D2",
+    "icon": "🏢",
+    "notes": "Este perfil foi criado automaticamente ao migrar para a nova arquitetura. Edite este arquivo para personalizar as informações da organização."
+}
