@@ -30,7 +30,7 @@ Módulo BMAD v6 para análise de editais e redação de projetos para organizaç
 
 ### Instalação A) Durante o Setup do BMAD (Recomendado)
 
-Ao executar `npx bmad-method@alpha init`, responda:
+Ao executar `npx bmad-method@alpha install`, responda:
 
 1. **Will you be installing any official BMad modules?**
    → `No`
@@ -44,7 +44,7 @@ Ao executar `npx bmad-method@alpha init`, responda:
 4. **Where should default output files be saved?**
    → `[ENTER]` para aceitar `_bmad-output`
 
-**Pronto!** O módulo está instalado e os agentes foram configurados automaticamente durante o `init`.
+**Pronto!** O módulo está instalado e os agentes foram configurados automaticamente durante o `install`.
 
 ---
 
