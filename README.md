@@ -28,19 +28,42 @@ Módulo BMAD v6 para análise de editais e redação de projetos para organizaç
 
 ## 🚀 Instalação
 
-### Passo 1: Instalar o Módulo BMAD
+### Instalação A) Durante o Setup do BMAD (Recomendado)
 
-Crie o repositório https://github.com/SUA_ORG/bmad-org-grants-br.git com a estrutura acima.
+Ao executar `npx bmad-method@alpha init`, responda:
 
-Dentro de um projeto BMAD já instalado, rodar:
+1. **Will you be installing any official BMad modules?**
+   → `No`
+
+2. **Would you like to install a local custom module?**
+   → `Yes`
+   
+3. **Path to your local custom module:**
+   → `c:\Users\User\Documents\bmad-org-grants-br`
+
+4. **Where should default output files be saved?**
+   → `[ENTER]` para aceitar `_bmad-output`
+
+**Pronto!** O módulo está instalado e os agentes foram configurados automaticamente durante o `init`.
+
+---
+
+### Instalação B) Após Setup do BMAD 
+Se você já fez o `init` do BMAD e quer adicionar o módulo depois:
 
 ```bash
+# Se o módulo está no GitHub
 npx bmad-method@alpha install-custom \
   --from git \
-  --repo https://github.com/SUA_ORG/bmad-org-grants-br.git
+  --repo https://github.com/b566776/bmad-org-grants-br.git
+
+# OU se está local
+npx bmad-method@alpha install-custom \
+  --from local \
+  --path c:\Users\User\Documents\bmad-org-grants-br
 ```
 
-Isso copia `agents/`, `workflows/`, `memories/` e `templates/` para `_bmad/modules/bmad-org-grants-br`.
+**Nota:** Na versão `@alpha`, não há comando `compile` separado. Os agentes são configurados automaticamente durante o `init` ou `install-custom`. Isso copia `agents/`, `workflows/`, `memories/` e `templates/` para `_bmad/modules/bmad-org-grants-br`.
 
 ### Passo 2: Copiar Scripts Python e Configurações
 
