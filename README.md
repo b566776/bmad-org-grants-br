@@ -63,9 +63,146 @@ npx bmad-method@alpha install-custom \
   --path c:\Users\User\Documents\bmad-org-grants-br
 ```
 
-**Nota:** Na versão `@alpha`, não há comando `compile` separado. Os agentes são configurados automaticamente durante o `init` ou `install-custom`. Isso copia `agents/`, `workflows/`, `memories/` e `templates/` para `_bmad/modules/bmad-org-grants-br`.
+**Nota:** Na versão `@alpha`, não há comando `compile` separado. Os agentes são configurados automaticamente durante o `install` ou `install-custom`. Isso copia `agents/`, `workflows/`, `memories/` e `templates/` para `_bmad/modules/bmad-org-grants-br`.
 
-### Passo 2: Copiar Scripts Python e Configurações
+---
+
+## 📂 Configuração: Organizando Dados da Organização
+
+Após a instalação, você precisa **preencher os diretórios** com as informações da sua organização.
+
+### Passo 1: Localizar o Diretório da Organização
+
+**Se instalou via Opção A (durante setup):**
+```
+_bmad/modules/bmad-org-grants-br/memories/organizations/default/
+```
+
+**Para criar organizações adicionais:**
+```bash
+python _bmad/modules/bmad-org-grants-br/scripts/create-organization.py \
+  --name "Nome da Organização" \
+  --type ngo
+```
+
+### Passo 2: Adicionar Documentos da Organização
+
+Organize os documentos nas seguintes pastas:
+
+#### 📄 `certidoes/` - Certidões e Registros Oficiais
+```
+certidoes/
+├── cnpj.pdf                    # CNPJ da organização
+├── certidao_federal.pdf        # Quitação de tributos federais
+├── certidao_estadual.pdf       # Quitação de tributos estaduais
+├── certidao_municipal.pdf      # Quitação de tributos municipais
+├── certidao_fgts.pdf           # Regularidade FGTS
+└── utilidade_publica.pdf       # Certificado de utilidade pública (se houver)
+```
+
+#### 💰 `documentos_bancarios/` - Dados Bancários
+```
+documentos_bancarios/
+├── dados_bancarios.md          # Banco, agência, conta (em markdown)
+└── comprovante_conta.pdf       # Comprovante de conta bancária
+```
+
+**Exemplo de `dados_bancarios.md`:**
+```markdown
+# Dados Bancários
+
+**Banco:** Banco do Brasil
+**Agência:** 1234-5
+**Conta Corrente:** 67890-1
+**CNPJ:** 12.345.678/0001-90
+**Titular:** [Nome da Organização]
+```
+
+#### 🏛️ `documentos_institucionais/` - Governança e Demonstrativos
+```
+documentos_institucionais/
+├── estatuto.pdf                # Estatuto social
+├── ata_eleicao_diretoria.pdf   # Ata da última eleição
+├── balanco_patrimonial.pdf     # Último balanço patrimonial
+└── relatorio_atividades.pdf    # Relatório de atividades anual
+```
+
+#### 📊 `projetos_anteriores/` - Histórico de Projetos
+```
+projetos_anteriores/
+├── projeto_2023_saude.md       # Projeto executado em 2023
+├── projeto_2022_educacao.md    # Projeto executado em 2022
+└── relatorios/
+    ├── relatorio_final_2023.pdf
+    └── certificado_conclusao_2023.pdf
+```
+
+**Exemplo de arquivo de projeto anterior:**
+```markdown
+# Projeto Saúde Comunitária 2023
+
+**Financiador:** Fundação XYZ
+**Valor:** R$ 150.000,00
+**Período:** Jan/2023 - Dez/2023
+**Status:** Concluído
+
+## Resumo
+Projeto de atenção básica à saúde...
+
+## Resultados
+- 500 atendimentos realizados
+- 3 comunidades atendidas
+```
+
+### Passo 3: Preencher Metadados da Organização
+
+Edite o arquivo `config.json`:
+
+```json
+{
+  "organization_name": "ONG Exemplo de Direitos Humanos",
+  "organization_type": "ngo",
+  "cnpj": "12.345.678/0001-90",
+  "areas_atuacao": ["direitos humanos", "assistência social", "educação"],
+  "tags": ["ong", "terceiro-setor"],
+  "color": "#2E7D32",
+  "icon": "🤝"
+}
+```
+
+**Tipos disponíveis:** `ngo`, `startup`, `company`, `institute`, `foundation`
+
+### Passo 4: Executar Fase 1 para Gerar Portfolio
+
+Após adicionar os documentos, execute a **Fase 1** do workflow:
+
+```bash
+# No agente BMAD PM, use:
+INICIAR
+```
+
+O workflow irá:
+1. ✅ Escanear todos os documentos nas subpastas
+2. ✅ Extrair informações relevantes
+3. ✅ **Gerar automaticamente** `ORGANIZATION_PORTFOLIO.md` consolidado
+4. ✅ Criar `HISTORICO_EDITAIS.md` se não existir
+
+**Resultado:** Portfolio completo gerado automaticamente! 🎉
+
+### Passo 5: Verificar Portfolio Gerado
+
+Confira o arquivo gerado:
+```
+_bmad/modules/bmad-org-grants-br/memories/organizations/default/ORGANIZATION_PORTFOLIO.md
+```
+
+Edite manualmente se necessário para complementar informações.
+
+---
+
+## 🔄 Gerenciamento Multi-Organizações
+
+### Listar Organizações Disponíveis
 
 **⚠️ Importante:** O comando acima NÃO copia os scripts Python e configs automaticamente.
 
